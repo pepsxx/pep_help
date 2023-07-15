@@ -109,7 +109,7 @@ public class Main {
         System.out.printf("i было: %d,   --i,   i стало: %d%n", ppInt1--, ppInt1);
         System.out.printf("i было: %d,   i--,   i стало: %d%n", ppInt1, --ppInt1);
         System.out.println("#########################################################################################");
-        System.out.println("//Операторы сравнения - [> >= < <= != ==]------------------------------------------------");
+        System.out.println("//Операторы сравнения - [> >= < <= != ==] и Условный оператор if--------------------------");
         ppBite = 5;
         ppShort = 1;
         ppBoolean = ppBite > ppShort;
@@ -185,6 +185,40 @@ public class Main {
             default -> System.out.printf("Не возможный месяц %d%n", ppBite);
         }
 
+        System.out.println("//Оператор break-------------------------------------------------------------------------");
+
+        while (true) {
+            System.out.println("Запущен бесконечный цикл который остановил \"break\"");
+            break;
+        }
+
+        System.out.println("break во внутреннем цикле по j = 2");
+        for (int i = 0; i <5; i++){
+            System.out.printf("i=%d j=", i);
+            for (int j = 0; j <5; j++){
+                if (j==2) break;
+                System.out.print(" " + j);
+            }
+            System.out.println();
+        }
+
+        System.out.println("break во внутреннем цикле по i = 2");
+        for (int i = 0; i <5; i++){
+            System.out.printf("i=%d j=", i);
+            for (int j = 0; j <5; j++){
+                if (i==2) break;
+                System.out.print(" " + j);
+            }
+            System.out.println();
+        }
+
+        System.out.println("//Оператор continue----------------------------------------------------------------------");
+
+        for (int i = 1; i < 15; i++) {
+            if (i % 2 == 0) continue;
+            System.out.printf("%d - Это не четное число%n", i);
+        }
+
         System.out.println("#########################################################################################");
         System.out.println("//Циклы----------------------------------------------------------------------------------");
         System.out.println("//Цикл - for-----------------------------------------------------------------------------");
@@ -211,6 +245,21 @@ public class Main {
             System.out.println("while - Второй вариант");
             ppBoolean = true;
         }
+
+        int i = 10;
+        while (i < 10) {
+            System.out.println("   wile сначала проверяю условие потом делаю тело цикла");
+            i++;
+        }
+
+        System.out.println("//Цикл - do while------------------------------------------------------------------------");
+
+        i = 10;
+        do {
+            System.out.println("do wile сначала делаю тело цикла потом проверяю условие");
+            System.out.println("do wile гарантирует однократное выполнение");
+            i++;
+        } while (i < 10);
 
         System.out.println("#########################################################################################");
         System.out.println("//Другое - Math-------------------------------------------------------------------------");
@@ -240,6 +289,9 @@ public class Main {
         System.out.printf("Задаем b2[0] = \"bbb\",             и запрашиваем значения лист a2=%s, b2=%s, c2=%s. Они изменились.%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
         pplist2.get(2)[0] = "ccc";
         System.out.printf("Задаем pplist2.get(0)[0] = \"ccc\", и запрашиваем значения лист a2=%s, b2=%s, c2=%s. Они изменились.%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
+        System.out.println("#########################################################################################");
+
+
         System.out.println("#########################################################################################");
     }
 }
