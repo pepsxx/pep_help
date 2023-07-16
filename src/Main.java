@@ -63,18 +63,36 @@ public class Main {
         System.out.println("Все в строчные: " + ppString2.toLowerCase());
         System.out.println("//Типы данных: //Интерфейсы--------------------------------------------------------------");
         System.out.println("//Типы данных: //Массивы-----------------------------------------------------------------");
-        String[] ppMString1 = {"Один", "Два", "Три"};
-        String[] ppMString2 = new String[3]; //Три элемента null
-        int[] ppMInt = new int[1];
-        boolean[] ppMbooleans = new boolean[1];
-        double[] ppMdouble = new double[1];
-        char[] ppMChar = new char[1];
-        System.out.println(ppMString1[1]);
-        System.out.println(ppMString2[1]);
-        System.out.println(ppMInt[0]);
-        System.out.println(ppMbooleans[0]);
-        System.out.println(ppMdouble[0]);
-        System.out.println(ppMChar[0]);
+        System.out.println("//Типы данных: //Массивы - Одномерные----------------------------------------------------");
+        String[] ppMString1 = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
+        String[] ppMString2 = {"Красный", "Оранжевый", "Жёлтый", "Зелёный", "Синий", "Голубой", "Фиолетовый"};
+        String[] ppMString3 = new String[3]; //Три элемента null
+        ppMString3[0] = "Один";
+        ppMString3[1] = "Два";
+        ppMString3[2] = "Три";
+        // Вывод через for ppMString1[]
+        for (int i = 0; i < ppMString1.length; i++) System.out.print(ppMString1[i] + " ");
+        System.out.println();
+        // Вывод через for each ppMString2[]
+        for (String s : ppMString2) System.out.print(s + " ");
+        System.out.println();
+        System.out.println("//Типы данных: //Массивы - Двумерные-----------------------------------------------------");
+        String[][] ppMMSrting1 = {{"aa", "bb", "cc"}, {"dd", "ee", "ff"}, {"gg", "hh", "ii"}, {"jj", "kk", "ll"}};
+        String[][] ppMMSrting2 = {{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",}, ppMString1, ppMString2, {"mm", "nn"}, ppMString3};
+        // Вывод через for ppMMSrting1[][]
+        for (int i = 0; i < ppMMSrting1.length; i++) {
+            for (int j = 0; j < ppMMSrting1[i].length; j++) {
+                System.out.print(ppMMSrting1[i][j] + " ");
+            }
+            System.out.println();
+        }
+        // Вывод через for each ppMMSrting2[][]
+        for (String[] s1 : ppMMSrting2) {
+            for (String s : s1) {
+                System.out.print(s + " ");
+            }
+            System.out.println();
+        }
         System.out.println("#########################################################################################");
         System.out.println("//Вывод данных---------------------------------------------------------------------------");
         System.out.print("System.out.print   - Нет перехода на новую строку. ");
@@ -193,20 +211,20 @@ public class Main {
         }
 
         System.out.println("break во внутреннем цикле по j = 2");
-        for (int i = 0; i <5; i++){
+        for (int i = 0; i < 5; i++) {
             System.out.printf("i=%d j=", i);
-            for (int j = 0; j <5; j++){
-                if (j==2) break;
+            for (int j = 0; j < 5; j++) {
+                if (j == 2) break;
                 System.out.print(" " + j);
             }
             System.out.println();
         }
 
         System.out.println("break во внутреннем цикле по i = 2");
-        for (int i = 0; i <5; i++){
+        for (int i = 0; i < 5; i++) {
             System.out.printf("i=%d j=", i);
-            for (int j = 0; j <5; j++){
-                if (i==2) break;
+            for (int j = 0; j < 5; j++) {
+                if (i == 2) break;
                 System.out.print(" " + j);
             }
             System.out.println();
