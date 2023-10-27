@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Main {
+public class Main {// Классы могут быть public или Default, но в одном java файле может быть только 1 public
     public static void main(String[] args) {
         System.out.println("#########################################################################################");
         System.out.println("//Сочетание клавиш-----------------------------------------------------------------------");
@@ -8,6 +8,7 @@ public class Main {
         System.out.println("Ctrl + /         - Закомментировать выделенную(е) строку(и).");
         System.out.println("Ctrl + Shift + / - Закомментировать выделанный кусок кода.");
         System.out.println("Ctrl + Alt - L   - Выровнять код по стилю.");
+        System.out.println("Alt  + Insert         - Меню с выбором создания: Конструктора, Гетора, Сетора...");
         System.out.println("Shift + F10      - Запустить код.");
         System.out.println("#########################################################################################");
         System.out.println("//Типы данных: Примитивные данные--------------------------------------------------------");
@@ -126,6 +127,12 @@ public class Main {
         System.out.printf("i было: %d,   i++,   i стало: %d%n", ppInt1, ++ppInt1);
         System.out.printf("i было: %d,   --i,   i стало: %d%n", ppInt1--, ppInt1);
         System.out.printf("i было: %d,   i--,   i стало: %d%n", ppInt1, --ppInt1);
+        System.out.printf("|%d|%d|%d|%n", ppInt1, 100, ppInt2);
+        System.out.printf("|%5d|%5d|%5d|%n", ppInt1, 100, ppInt2);
+        System.out.printf("|%-5d|%-5d|%-5d|%n", ppInt1, 100, ppInt2);
+        System.out.printf("|%5d|%5d|%5d|%n", 123, 123456, 123456789); //Если не влезает в 5 символов, то расширяется до нужного количества.
+        System.out.printf("|%.5f|%.15f|%.25f|%n", Math.PI, Math.PI, Math.PI);
+
         System.out.println("#########################################################################################");
         System.out.println("//Операторы сравнения - [> >= < <= != ==] и Условный оператор if--------------------------");
         ppBite = 5;
@@ -280,14 +287,16 @@ public class Main {
         } while (dw < 10);
 
         System.out.println("#########################################################################################");
-        System.out.println("//Другое - Math-------------------------------------------------------------------------");
+        System.out.println("//Другое - Math (класс математических действий)-----------------------------------------");
         System.out.printf("Наименьшее число из [%d], [%d] это %d %n", ppInt1, ppInt2, Math.min(ppInt1, ppInt2));
         System.out.printf("Наибольшее число из [%d], [%d] это %d %n", ppInt1, ppInt2, Math.max(ppInt1, ppInt2));
+        System.out.printf("[%d] в степени [%d] это %f %n", ppInt1, ppInt2, Math.pow(ppInt1, ppInt2));
+        System.out.printf("Число Пи равно %f %n", Math.PI);
         System.out.println("//Другое - List-------------------------------------------------------------------------");
         List<Integer> ppLInteger = List.of(0, (int) ppShort, ppInt, 12345);
         List<String> ppLString = List.of(String.valueOf(ppChar), ppString1, ppString2, "qwerty");
         System.out.printf("Элемент Листа с индексом %d это: %d%n", 2, ppLInteger.get(2));
-        //Если в List (Integer или String) изменить значения, то в переменной они останутся старые и на оборот.
+        //Если в List (Integer или String) изменить значения, то в переменной они останутся старые.
         String a1 = "aa";
         String b1 = "bb";
         String c1 = "cc";
@@ -296,17 +305,180 @@ public class Main {
         System.out.printf("Проверяем значения листа  a1=%s, b1=%s, c1=%s%n", pplist1.get(0), pplist1.get(1), pplist1.get(2));
         a1 = "aaa";
         System.out.printf("Задаем a1 = \"aaa\", и запрашиваем значения лист a1=%s, b1=%s, b1=%s.%nОни не изменились.%n%n", pplist1.get(0), pplist1.get(1), pplist1.get(2));
-        //Если в List (Integer[] или String[]) изменить значения, то они изменятся в переменной  и на оборот.
+        //Если в List (Integer[] или String[]) изменить значения, то они изменятся в переменной и на оборот.
         String[] a2 = {"aaa"};
-        String[] b2 = {"aaa"};
-        String[] c2 = {"aaa"};
+        String[] b2 = {"bbb"};
+        String[] c2 = {"ccc"};
         List<String[]> pplist2 = List.of(a2, b2, c2);
         System.out.printf("Переменные String[] равны a2=%s, b2=%s, c2=%s%n", a2[0], b2[0], c2[0]);
         System.out.printf("Проверяем значения листа  a2=%s, b2=%s, c2=%s%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
-        b2[0] = "bbb";
-        System.out.printf("Задаем b2[0] = \"bbb\",             и запрашиваем значения лист a2=%s, b2=%s, c2=%s. Они изменились.%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
-        pplist2.get(2)[0] = "ccc";
-        System.out.printf("Задаем pplist2.get(0)[0] = \"ccc\", и запрашиваем значения лист a2=%s, b2=%s, c2=%s. Они изменились.%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
+        b2[0] = "bBb";
+        System.out.printf("Задаем b2[0] = \"bBb\",             и запрашиваем значения. Они изменились:%n");
+        System.out.printf("Переменные String[] равны a2=%s, b2=%s, c2=%s%n", a2[0], b2[0], c2[0]);
+        System.out.printf("Проверяем значения листа  a2=%s, b2=%s, c2=%s%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
+        pplist2.get(2)[0] = "cCc";
+        System.out.printf("Задаем pplist2.get(0)[0] = \"cCc\", и запрашиваем значения. Они изменились:%n");
+        System.out.printf("Переменные String[] равны a2=%s, b2=%s, c2=%s%n", a2[0], b2[0], c2[0]);
+        System.out.printf("Проверяем значения листа  a2=%s, b2=%s, c2=%s%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
         System.out.println("#########################################################################################");
+        pcCar.pfInfo();
+        pcCar ppAuto1 = new pcCar("Ford");
+        ppAuto1.pgWheel = 6; //Не желательно
+        ppAuto1.setSeat(-10);
+        ppAuto1.setColor("красный");
+        ppAuto1.getWheel();
+        ppAuto1.getSeat();
+        ppAuto1.getColor();
+        pcCar.pfInfo();
+        pcCar ppAuto2 = new pcCar("KIA");
+        ppAuto2.setWheel(0);
+        ppAuto2.setSeat(8);
+        ppAuto2.setColor("желтый");
+        ppAuto2.getWheel();
+        ppAuto2.getSeat();
+        ppAuto2.getColor();
+        pcCar.pfInfo();
+        pcCar ppAuto3 = new pcCar("LADA");
+        ppAuto3.getWheel();
+        ppAuto3.getSeat();
+        ppAuto3.getColor();
+        pcCar.pfInfo();
+        pcCFura ppAuto4 = new pcCFura("VOLVO", 12345);
+        ppAuto4.setWheel(3);
+        ppAuto4.setSeat(3);
+        ppAuto4.setColor("Синий");
+        ppAuto4.getWheel();
+        ppAuto4.getSeat();
+        ppAuto4.getColor();
+        ppAuto4.pfInfoFura();
+
+        ppAuto1.pfShowInfo();
+        ppAuto2.pfShowInfo();
+        ppAuto3.pfShowInfo();
+        ppAuto4.pfShowInfo();
+
+
     }
 }
+//////////////////////////////////////////////////
+// ppXXXXX - Переменная - Оъекта в методе
+// pgXXXXX - Переменная - Оъекта в классе
+// psXXXXX - Переменная - Класса
+// pfXXXXX - Функции (мои методы)
+// pcXXXXX - Класс
+// piXXXXX - Индерфейс
+//////////////////////////////////////////////////
+class pcCar implements piInfoCar {//implements piInfoCar - Означает что клас привязан к интерфейсу piInfoCar и в классе должны быть реализованны все методы заявленные в интерфейсе
+    //--Переменные|Н
+    //"static" - Это переменная не объекта, а класса и поэтому при её смене она меняется сразу у всех объектов.
+    ////"public"    - Переменную можно будет задавать на прямую, следовательно, можно задать не корректное число (неправильно небезопасно).
+    ////"protected" - Доступ к переменной в пределах пакета (папки) и из классов родителей.
+    ////"default"   - Доступ к переменной в пределах пакета (папки)
+    ////"private"   - Переменную можно будет поменять только через метод (правильно безопасно).
+    //////"final"   - Переменная которую нельзя менять (принято писать большими буквами).
+    //--Переменные--Класса
+    static public final int PSSTAR = 5;
+    static private String psColor = "Cерый";
+    //--Переменные--Объекта
+    public int pgWheel = 4; //Не желательно. (При создании нового объекта это будет значение по умолчанию).
+    private int pgSeat = 5; //Желательно.    (При создании нового объекта это будет значение по умолчанию).
+    private String pgMarka;
+
+    //--Переменные|К
+    //--Конструкторы|Н
+    public pcCar(String pgMarka) {//Конструктор, обязывает при создании объекта задать Марку.
+        this.pgMarka = pgMarka;
+    }
+
+    //--Конструкторы|К
+    //--Сеторы|Н
+    public void setWheel(int ppX) {
+        if (ppX > 0) {
+            pgWheel = ppX;
+            System.out.printf("Создается машина, количество колес: %d%n", ppX);
+        } else {
+            pgWheel = 5;
+            System.out.printf("Вы ввели не корректное число колес %d.%nМы сделаем вам стандартную комплектацию, количество колес: %d.%n", ppX, pgWheel);
+        }
+    }
+
+    public void setSeat(int pgSeat) {
+        if (pgSeat > 0) {
+            this.pgSeat = pgSeat; //Если переменная в методе называется так же как и глобальная, то к глобальной можно обратиться с помощью "this"
+            System.out.printf("Создается машина, количество сидений: %d%n", this.pgSeat);
+        } else {
+            this.pgSeat = 5;
+            System.out.printf("Вы ввели не корректное число сидений %d.%nМы сделаем вам стандартную комплектацию, количество сидений: %d.%n", pgSeat, this.pgSeat);
+        }
+    }
+
+    public void setColor(String ppX) {
+        psColor = ppX;
+        System.out.printf("Создается машина, цвет для покраски: %s.%n", ppX);
+        System.out.printf("Также идет перекраска ранее созданных машин.%n");
+    }
+
+    //--Сеторы|К
+    //--Гетеры|Н
+    public String getPpMarka() {
+        return pgMarka;
+    }
+
+    public void getWheel() {
+        System.out.printf("Количество колес вашей машины: %d.%n", pgWheel);
+    }
+
+    public void getSeat() {
+        System.out.printf("Количество сидений вашей машины: %d.%n", pgSeat);
+    }
+
+    public void getColor() {
+        System.out.printf("Все машины покрашены в %s цвет.%n", psColor);
+    }
+
+    //--Гетеры|K
+    //--Функции|Н
+    public void pfShowInfo() {
+        System.out.println("Машина: " + pgMarka);
+    }
+
+    static void pfInfo() {  //Статический метод может работать только со статическими переменными.
+        System.out.printf("%n-= Мы создаем новые автомобили =-%n");
+        System.out.printf("-= В слоне %d звезд =-%n", PSSTAR);
+        psColor = "Белый";  //Эта переменная не объекта, а класса и поэтому при её смене она меняется сразу у всех объектов.
+//      this.pgColor = 1; //Нельзя "this"   т.к. метод "static"  и переменная    "static".
+//      pgSeat = 1;       //Нельзя "pgSeat" т.к. метод "static", а переменная не "static".
+    }
+    //--Функции|К
+
+
+}
+
+class pcCFura extends pcCar implements piInfoCar {//"extends pcCar" - Значит что pcCFura это подкласс pcCar и тоже может использовать методы pcCar.
+    private int ppIdFura;
+
+    public void pfShowInfo() {
+        System.out.println("Тягач:  " + getPpMarka() + ", " + ppIdFura);
+    }
+
+    public pcCFura(String ppMarka, int ppIdFura) {//Конструктор, обязывает при создании объекта задать марку и id.
+        super(ppMarka);//Марку по требованию вышестоящего класса.
+        this.ppIdFura = ppIdFura;
+    }
+
+    public void setWheel(int xxx) { //Переопределенный метод. Вместо метода из класса pcCar будет использоваться метод из pcCFura
+        if (xxx > 4) {
+            pgWheel = xxx;
+            System.out.printf("Создается Тягач, количество колес: %d%n", xxx);
+        } else {
+            pgWheel = 18;
+            System.out.printf("Вы ввели не корректное число колес %d.%nМы сделаем вам стандартную комплектацию, количество колес для Тягача: %d.%n", xxx, pgWheel);
+        }
+    }
+
+    public void pfInfoFura() {
+        System.out.println(pgWheel); //Публичные переменные мз класса pcCar
+        System.out.println(PSSTAR);  //Публичные переменные мз класса pcCar
+    }
+}
+
