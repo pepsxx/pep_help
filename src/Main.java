@@ -455,17 +455,14 @@ class pcCar implements piInfoCar {//implements piInfoCar - Означает чт
 }
 
 class pcCFura extends pcCar implements piInfoCar {//"extends pcCar" - Значит что pcCFura это подкласс pcCar и тоже может использовать методы pcCar.
-    private int ppIdFura;
-
+    private int pgIdFura;
+    public pcCFura(String pgMarka, int pgIdFura) {//Конструктор, обязывает при создании объекта задать марку и id.
+        super(pgMarka);//Марку по требованию вышестоящего класса.
+        this.pgIdFura = pgIdFura;
+    }
     public void pfShowInfo() {
-        System.out.println("Тягач:  " + getPpMarka() + ", " + ppIdFura);
+        System.out.println("Тягач:  " + getPpMarka() + ", " + pgIdFura);
     }
-
-    public pcCFura(String ppMarka, int ppIdFura) {//Конструктор, обязывает при создании объекта задать марку и id.
-        super(ppMarka);//Марку по требованию вышестоящего класса.
-        this.ppIdFura = ppIdFura;
-    }
-
     public void setWheel(int xxx) { //Переопределенный метод. Вместо метода из класса pcCar будет использоваться метод из pcCFura
         if (xxx > 4) {
             pgWheel = xxx;
@@ -475,7 +472,6 @@ class pcCFura extends pcCar implements piInfoCar {//"extends pcCar" - Значи
             System.out.printf("Вы ввели не корректное число колес %d.%nМы сделаем вам стандартную комплектацию, количество колес для Тягача: %d.%n", xxx, pgWheel);
         }
     }
-
     public void pfInfoFura() {
         System.out.println(pgWheel); //Публичные переменные мз класса pcCar
         System.out.println(PSSTAR);  //Публичные переменные мз класса pcCar
