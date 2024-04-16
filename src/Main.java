@@ -1,46 +1,141 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {// Классы могут быть public или Default, но в одном java файле может быть только 1 public
-    public static void main(String[] args) {
-        System.out.println("#########################################################################################");
-        System.out.println("//Сочетание клавиш-----------------------------------------------------------------------");
-        System.out.println("Ctrl + D         - Создать копию выделенной(х) строки(ок) кода с низу.");
-        System.out.println("Ctrl + /         - Закомментировать выделенную(е) строку(и).");
-        System.out.println("Ctrl + Shift + / - Закомментировать выделанный кусок кода.");
-        System.out.println("Ctrl + Alt - L   - Выровнять код по стилю.");
-        System.out.println("Alt  + Insert         - Меню с выбором создания: Конструктора, Гетора, Сетора...");
-        System.out.println("Shift + F10      - Запустить код.");
-        System.out.println("#########################################################################################");
+
+    public static void main(String[] args) throws InterruptedException {
+        // Logo - Начало.
+        // v2.4.0.4.1.3.
+        System.out.println("""
+                -----------------------------------------------------------------------------
+                -                                              $$                           -
+                - $$$$$$$$     $$$$$$   $$$$$$$$            $$$$$$$$  $$$$  $$$$ $$$$  $$$$ -
+                - $$$$$$$$$   $$$$$$$$  $$$$$$$$$          $$$$$$$$$$ $$$$  $$$$ $$$$  $$$$ -
+                - $$$$  $$$$ $$$$  $$$$ $$$$  $$$$         $$$$   $$$  $$$  $$$   $$$  $$$  -
+                - $$$$  $$$$ $$$$  $$$$ $$$$  $$$$         $$$$         $$$$$$     $$$$$$   -
+                - $$$$$$$$$  $$$$$$$$$$ $$$$$$$$$          $$$$$$$$$     $$$$       $$$$    -
+                - $$$$$$$$   $$$$$$$$$$ $$$$$$$$            $$$$$$$$$    $$$$       $$$$    -
+                - $$$$       $$$$       $$$$                     $$$$   $$$$$$     $$$$$$   -
+                - $$$$       $$$$  $$$$ $$$$               $$$   $$$$  $$$  $$$   $$$  $$$  -
+                - $$$$        $$$$$$$$  $$$$     $$$$$$$$  $$$$$$$$$$ $$$$  $$$$ $$$$  $$$$ -
+                - $$$$          $$$$    $$$$     $$$$$$$$   $$$$$$$$  $$$$  $$$$ $$$$  $$$$ -
+                -                                              $$                           -
+                -----------------------------------------------------------------------------
+                """);
+        // Logo - Конец.
+        //Thread.sleep(1000);
+        // Заметки - Начало.
+        //v2.4.0.4.1.3.
+        System.out.println("""
+                /////////////////////////////////////////////////////////////////////////////////////////
+                // Ctrl + D             - Создать копию выделенной(х) строки(ок) кода снизу.
+                // Ctrl + /             - Закомментировать выделенную(е) строку(и).
+                // Ctrl + Shift + /     - Закомментировать выделанный кусок кода.
+                // Ctrl + Alt - L       - Выровнять код по стилю.
+                // Ctrl + Alt  + Insert - Меню с выбором создания: Класса и др...
+                //        Alt  + Insert - Меню с выбором создания: Конструктора, Гетора, Сетора...
+                // Shift + F10          - Запустить код.");
+                // psvm - Создать метод main
+                // sout - Создать метод System.out.println();
+                /////////////////////////////////////////////////////////////////////////////////////////
+                // (public, protected, default, private)
+                //// "public"    - Переменную можно будет задавать на прямую, следовательно, можно задать не корректное число (неправильно небезопасно).
+                //// "protected" - Доступ к переменной в пределах пакета (папки) и из классов родителей.
+                //// "default"   - Доступ к переменной в пределах пакета (папки).
+                //// "private"   - Переменную можно будет поменять только через метод (правильно безопасно).
+                // "static"      - Это переменная не объекта, а класса и поэтому при её смене она меняется сразу у всех объектов.
+                // "final"       - Переменная которую нельзя менять (ПРИНЯТО ПИСАТЬ ИМЯ БОЛЬШИМИ БУКВАМИ).
+                // pmxxxxxx - Переменная - Объекта в методе.
+                // pgxxxxxx - Переменная - Объекта в классе ("глобальная").
+                // psxxxxxx - Переменная - Класса Общая.      (static)
+                // PXXXXXXX - Переменная - Неизменная. (final) //Конвенция - Всё большими буквами.
+                //
+                // Pc_Xxxxx - Класс.                           //Конвенция - С большой буквы.
+                // Pi_Xxxxx - Индерфейс.
+                // Pp_Xxxxx - Пакет.
+                // pf_Xxxxx - Функции (мои методы) ничего не возвращает.
+                // pfi_Xxxx - Функции (мои методы) возвращает int.
+                // po_Xxxxx - Объекты. Кроме: Оберточные, Массивы, Листы.
+                //
+                // poSb_Xxx -> StringBuilder.
+                // poSc_Xxx -> Scaner.
+                // poFi_Xxx -> File.
+                //
+                // set_pgi_age - Сетор для переменной pgi_ag.
+                // get_pgi_age - Гетор для переменной pgi_ag.
+                // get_Xxxxxxx - Гетор для ещё чего-либо.
+                // В методах set и get возможно проще использовать переменную "pgxxxxxx" с "this." вместо "ppxxxxxx".
+                //
+                // pmс_Xxxx - Переменная примитивная -> char.
+                // pmy_Xxxx - Переменная примитивная -> byte.
+                // pms_Xxxx - Переменная примитивная -> short.
+                // pmi_Xxxx - Переменная примитивная -> int.
+                // pml_Xxxx - Переменная примитивная -> long.
+                // pmf_Xxxx - Переменная примитивная -> float.
+                // pmd_Xxxx - Переменная примитивная -> double.
+                // pmb_Xxxx - Переменная примитивная -> boolean.
+                //
+                // pmDo_Xxx - Переменная - Ссылочная -> Double.
+                // pmFl_Xxx - Переменная - Ссылочная -> Float.
+                // pmLo_Xxx - Переменная - Ссылочная -> Long.
+                // pmIn_Xxx - Переменная - Ссылочная -> Integer.
+                // pmSh_Xxx - Переменная - Ссылочная -> Short.
+                // pmBy_Xxx - Переменная - Ссылочная -> Byte.
+                // pmCh_Xxx - Переменная - Ссылочная -> Character.
+                // pmBo_Xxx - Переменная - Ссылочная -> Boolean.
+                //
+                // pmМi_Xxxx - Масив - Одномерный  -> int.
+                // pmМMi_Xxx - Масив - Двумерный   -> int.
+                // pmМSt_Xxx - Масив - Одномерный  -> String.
+                // pmМMSt_Xx - Масив - Двумерный   -> String.
+                // pmLSt_Xx - Лист с -> String.
+                // pmLIn_Xx - Лист с -> Intejer.
+                // pmLMSt_X - Лист с -> Масив - Одномерный -> String.
+                // pmLOb_Xx - Лист с -> Объектами.
+                /////////////////////////////////////////////////////////////////////////////////////////
+                """);
+        // Заметки - Конец.
+        //Thread.sleep(1000);
         System.out.println("//Типы данных: Примитивные данные--------------------------------------------------------");
         System.out.println("//Типы данных: //Символьные--------------------------------------------------------------");
-        char ppChar = 'c';
-        System.out.println("Символ:  " + ppChar);         //Вывод самого символа
-        System.out.println("Его код: " + (int) (ppChar)); //Вывод кода   символа
+        char pmc_Char = 'c';
+        System.out.println("Символ:  " + pmc_Char);         //Вывод самого символа.
+        System.out.println("Его код: " + (int) (pmc_Char)); //Вывод кода   символа.
         System.out.println("//Типы данных: //Числовые----------------------------------------------------------------");
         System.out.println("//Типы данных: ////Целые-----------------------------------------------------------------");
-        byte ppBite = 100;                        // Бит: 8,  Байт: 1, Диапазон: [-128;127], 01111111
-        short ppShort = 30_000;                   // Бит: 16, Байт: 2, Диапазон: [-32_768;32_767], 01111111_11111111
-        int ppInt = 2_000_000_000;                // Бит: 32, Байт: 4, Диапазон: [-2_147_483_648;2_147_483_647], 01111111_11111111_11111111_11111111
-        long ppLong = 9_000_000_000_000_000_000L; // Бит: 64, Байт: 8, Диапазон: [-9_223_372_036_854_775_808;9_223_372_036_854_775_807], 01111111_11111111_11111111_11111111_11111111_11111111_11111111_11111111
-        System.out.println("byte:  " + ppBite);
-        System.out.println("short: " + ppShort);
-        System.out.println("int:   " + ppInt);
-        System.out.println("long:  " + ppLong);
+        byte pmy_Bite = 100;                        // Бит: 8,  Байт: 1, Диапазон: [-128;127], 01111111.
+        short pms_Short = 30_000;                   // Бит: 16, Байт: 2, Диапазон: [-32_768;32_767], 01111111_11111111.
+        int pmi_Int = 2_000_000_000;                // Бит: 32, Байт: 4, Диапазон: [-2_147_483_648;2_147_483_647], 01111111_11111111_11111111_11111111.
+        long pml_Long = 9_000_000_000_000_000_000L; // Бит: 64, Байт: 8, Диапазон: [-9_223_372_036_854_775_808;9_223_372_036_854_775_807], 01111111_11111111_11111111_11111111_11111111_11111111_11111111_11111111.
+        System.out.println("byte:  " + pmy_Bite);
+        System.out.println("short: " + pms_Short);
+        System.out.println("int:   " + pmi_Int);
+        System.out.println("long:  " + pml_Long);
+        System.out.println("-----------------------------------------------------------------------------------------");
+        //Можно задевать несколько переменных одного типа в одной строке.
+        int pmi_Int1 = 1, pmi_Int2 = 2, pmi_Int3 = 1;
+        System.out.println("pmi_Int1 = " + pmi_Int1);
+        System.out.println("pmi_Int2 = " + pmi_Int2);
+        System.out.println("pmi_Int3 = " + pmi_Int3);
         System.out.println("//Типы данных: ////Вещественные----------------------------------------------------------");
-        float ppFloat = 1.0F;   // Бит: 32, Байт: 4
-        double ppDouble = 1.0; // Бит: 64, Байт: 8
-        System.out.println("float:   " + ppFloat / 3);
-        System.out.println("double:  " + ppDouble / 3);
+        float pmf_Float = 1.0F;   // Бит: 32, Байт: 4.
+        double pmd_Double = 1.0;  // Бит: 64, Байт: 8 // На конце можно писать D.
+        System.out.println("float:   " + pmf_Float / 3);
+        System.out.println("double:  " + pmd_Double / 3);
         System.out.println("//Типы данных: //Булевы------------------------------------------------------------------");
-        boolean ppBoolean = true; // true или false
-        System.out.println("boolean: " + ppBoolean);
-        System.out.println("//Типы данных: Ссылочные------------------------------------------------------------------");
-        System.out.println("//Типы данных: //Классы-------------------------------------------------------------------");
-        System.out.println("//Типы данных: //Класс - String-----------------------------------------------------------");
-        String ppString1 = "Три";
-        String ppString2 = "Один Два Три";
-        System.out.println("ppString1: " + ppString1);
-        System.out.println("ppString2: " + ppString2);
+        boolean pmb_Boolean = true; // true или false.
+        System.out.println("boolean: " + pmb_Boolean);
+        //Thread.sleep(1000);
+        System.out.println("//Типы данных: Ссылочные-----------------------------------------------------------------");
+        System.out.println("//Типы данных: //Классы------------------------------------------------------------------");
+        System.out.println("//Типы данных: //Класс - String (immutable)----------------------------------------------");
+        String pmSt_String1 = "Два";
+        System.out.println("pmSt_String1 = " + pmSt_String1 + ". ");
+        pmSt_String1 = "Три";
+        System.out.println("pmSt_String1 = " + pmSt_String1 + ". Объект не изминился, а создался новый, т.к. immutable");
+        String pmSt_String2 = "Один Два Три";
+        System.out.println("pmSt_String1: " + pmSt_String1);
+        System.out.println("pmSt_String2: " + pmSt_String2);
         System.out.println("//Типы данных: //Класс - String //Метод - length      - длина строки---------------------");
         System.out.println("//Типы данных: //Класс - String //Метод - equals      - сравнение строк------------------");
         System.out.println("//Типы данных: //Класс - String //Метод - charAt      - символ строки--------------------");
@@ -51,56 +146,63 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("//Типы данных: //Класс - String //Метод - toUpperCase - перевод в заглавные--------------");
         System.out.println("//Типы данных: //Класс - String //Метод - toLowerCase - перевод в строчные---------------");
         System.out.println("Примеры:");
-        System.out.println("Длина строки ppString1: " + ppString1.length());
-        System.out.println("Сравнение строк ppString1 и ppString2: " + ppString1.equals(ppString2));
-        System.out.println("2ой Символ строки ppString1: " + ppString1.charAt(1));
-        System.out.println("Индекс символа 'и' в ppString1: " + ppString1.indexOf('и'));
-        System.out.println("в ppString2 есть ppString1: " + ppString2.contains(ppString1));
-        System.out.println("Часть ppString2 с 5 символа по 7: " + ppString2.substring(5, 8));
-        System.out.println("Часть ppString2 с 5 символа до конца: " + ppString2.substring(5));
-        System.out.println("Замена Три на Четыре: " + ppString2.replace("Три", "Четыре"));
-        System.out.println("Замена 'и' на 'е': " + ppString2.replace('и', 'е'));
-        System.out.println("Все в заглавные: " + ppString2.toUpperCase());
-        System.out.println("Все в строчные: " + ppString2.toLowerCase());
-        System.out.println("//Типы данных: //Интерфейсы--------------------------------------------------------------");
+        System.out.println("Длина строки pmSt_String1: " + pmSt_String1.length());
+        System.out.println("Сравнение строк pmSt_String1 и pmSt_String2: " + pmSt_String1.equals(pmSt_String2));
+        System.out.println("2ой Символ строки pmSt_String1: " + pmSt_String1.charAt(1));
+        System.out.println("Индекс символа 'и' в pmSt_String1: " + pmSt_String1.indexOf('и'));
+        System.out.println("в pmSt_String2 есть pmSt_String1: " + pmSt_String2.contains(pmSt_String1));
+        System.out.println("Часть pmSt_String2 с 5 символа по 7: " + pmSt_String2.substring(5, 8));
+        System.out.println("Часть pmSt_String2 с 5 символа до конца: " + pmSt_String2.substring(5));
+        System.out.println("Замена Три на Четыре: " + pmSt_String2.replace("Три", "Четыре"));
+        System.out.println("Замена 'и' на 'е': " + pmSt_String2.replace('и', 'е'));
+        System.out.println("Все в заглавные: " + pmSt_String2.toUpperCase());
+        System.out.println("Все в строчные: " + pmSt_String2.toLowerCase());
+        System.out.println("//Типы данных: //Класс - String (mutable)------------------------------------------------");
+        StringBuilder pmSb_String1 = new StringBuilder("Mutable - Изменяемый класс.");
+        System.out.println("pmSb_String1 = " + pmSb_String1);
+        pmSb_String1.append(" Добавлен текст, а не создан новый объект с новой ссылкой");
+        System.out.println("pmSb_String1 = " + pmSb_String1);
+        Thread.sleep(1000);
         System.out.println("//Типы данных: //Массивы-----------------------------------------------------------------");
         System.out.println("//Типы данных: //Массивы - Одномерные----------------------------------------------------");
-        String[] ppMString1 = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
-        String[] ppMString2 = {"Красный", "Оранжевый", "Жёлтый", "Зелёный", "Синий", "Голубой", "Фиолетовый"};
-        String[] ppMString3 = new String[3]; //Три элемента null
-        ppMString3[0] = "Один";
-        ppMString3[1] = "Два";
-        ppMString3[2] = "Три";
-        // Вывод через for ppMString1[]
-        for (int i = 0; i < ppMString1.length; i++) System.out.print(ppMString1[i] + " ");
+        String[] pmMSt_String1 = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
+        String[] pmMSt_String2 = {"Красный", "Оранжевый", "Жёлтый", "Зелёный", "Синий", "Голубой", "Фиолетовый"};
+        String[] pmMSt_String3 = new String[3]; //Три элемента null. // new ключевое слово для выделения памяти.
+        pmMSt_String3[0] = "Один";
+        pmMSt_String3[1] = "Два";
+        pmMSt_String3[2] = "Три";
+        // Вывод через for pmMSt_String1[].
+        for (int i = 0; i < pmMSt_String1.length; i++) System.out.print(pmMSt_String1[i] + " ");
         System.out.println();
-        // Вывод через for each ppMString2[]
-        for (String s : ppMString2) System.out.print(s + " ");
+        // Вывод через for each pmMSt_String2[].
+        for (String s : pmMSt_String2) System.out.print(s + " ");
         System.out.println();
         System.out.println("//Типы данных: //Массивы - Двумерные-----------------------------------------------------");
-        String[][] ppMMSrting1 = {{"aa", "bb", "cc"}, {"dd", "ee", "ff"}, {"gg", "hh", "ii"}, {"jj", "kk", "ll"}};
-        String[][] ppMMSrting2 = {{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",}, ppMString1, ppMString2, {"mm", "nn"}, ppMString3};
-        // Вывод через for ppMMSrting1[][]
-        for (int i = 0; i < ppMMSrting1.length; i++) {
-            for (int j = 0; j < ppMMSrting1[i].length; j++) {
-                System.out.print(ppMMSrting1[i][j] + " ");
+        String[][] pmMMSt_MMSrting1 = {{"aa", "bb", "cc"}, {"dd", "ee", "ff"}, {"gg", "hh", "ii"}, {"jj", "kk", "ll"}};
+        String[][] pmMMSt_MMSrting2 = {{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",}, pmMSt_String1, pmMSt_String2, {"mm", "nn"}, pmMSt_String3};
+        // Вывод через for pmMMSt_MMSrting1[][].
+        for (int i = 0; i < pmMMSt_MMSrting1.length; i++) {
+            for (int j = 0; j < pmMMSt_MMSrting1[i].length; j++) {
+                System.out.print(pmMMSt_MMSrting1[i][j] + " ");
             }
             System.out.println();
         }
-        // Вывод через for each ppMMSrting2[][]
-        for (String[] s1 : ppMMSrting2) {
-            for (String s : s1) {
-                System.out.print(s + " ");
+        // Вывод через for each pmMMSt_MMSrting2[][].
+        for (String[] sm1 : pmMMSt_MMSrting2) {
+            for (String s1 : sm1) {
+                System.out.print(s1 + " ");
             }
             System.out.println();
         }
+        //Thread.sleep(1000);
         System.out.println("#########################################################################################");
         System.out.println("//Вывод данных---------------------------------------------------------------------------");
         System.out.print("System.out.print   - Нет перехода на новую строку. ");
         System.out.print("Спец символ \"\\n\" для перехода на новую строчку.\n");
         System.out.println("System.out.println - Есть переход на новую строку.");
+        System.out.println("                     Спец символ \"\\t\" для отступа->\t\t<-Продолжение после отступа.");
         System.out.printf("System.out.printf  - Нет перехода на новую строку. но удобно использовать с переменными:\n");
-        System.out.printf("%%d: %d, %%f: %f, %%b: %b, %%B: %B, %%c: %c, %%C: %C, %%s: %s, %%S: %S, %%h: %h, %%n: Переход на новую строку %n", ppInt, ppFloat, ppBoolean, ppBoolean, ppChar, ppChar, ppString1, ppString1, ppString2);
+        System.out.printf("%%d: %d, %%f: %f, %%b: %b, %%B: %B, %%c: %c, %%C: %C, %%s: %s, %%S: %S, %%h: %h, %%n: Переход на новую строку %n", pmi_Int, pmf_Float, pmb_Boolean, pmb_Boolean, pmc_Char, pmc_Char, pmSt_String1, pmSt_String1, pmSt_String2);
         System.out.println("""
                 **************************************
                 * Интересный вид записи              *
@@ -110,104 +212,112 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("#########################################################################################");
         System.out.println("//Операции-------------------------------------------------------------------------------");
         System.out.println("//Операции - Бинарные - [+ - * / %]------------------------------------------------------");
-        int ppInt1 = 3;
-        int ppInt2 = 2;
-        System.out.printf("%d + %d = %d%n", ppInt1, ppInt2, (ppInt1 + ppInt2));
-        System.out.printf("%d - %d = %d%n", ppInt1, ppInt2, (ppInt1 - ppInt2));
-        System.out.printf("%d * %d = %d%n", ppInt1, ppInt2, (ppInt1 * ppInt2));
-        System.out.printf("%d / %d = %d%n", ppInt1, ppInt2, (ppInt1 / ppInt2));
-        System.out.printf("%d %% %d = %d%n", ppInt1, ppInt2, (ppInt1 % ppInt2));
+        System.out.printf("%d + %d = %d%n", pmi_Int1, pmi_Int2, (pmi_Int1 + pmi_Int2));
+        System.out.printf("%d - %d = %d%n", pmi_Int1, pmi_Int2, (pmi_Int1 - pmi_Int2));
+        System.out.printf("%d * %d = %d%n", pmi_Int1, pmi_Int2, (pmi_Int1 * pmi_Int2));
+        System.out.printf("%d / %d = %d%n", pmi_Int1, pmi_Int2, (pmi_Int1 / pmi_Int2));
+        System.out.printf("%d %% %d = %d%n", pmi_Int1, pmi_Int2, (pmi_Int1 % pmi_Int2));
         System.out.println("//Операции - Унарные - [+= -= *= /= %= ++ --]--------------------------------------------");
-        System.out.printf("a было: %d,   b было: %d,   a+=b,   a стало: %d%n", ppInt1, ppInt2, ppInt1 += ppInt2);
-        System.out.printf("a было: %d,   b было: %d,   a-=b,   a стало: %d%n", ppInt1, ppInt2, ppInt1 -= ppInt2);
-        System.out.printf("a было: %d,   b было: %d,   a*=b,   a стало: %d%n", ppInt1, ppInt2, ppInt1 *= ppInt2);
-        System.out.printf("a было: %d,   b было: %d,   a/=b,   a стало: %d%n", ppInt1, ppInt2, ppInt1 /= ppInt2);
-        System.out.printf("a было: %d,   b было: %d,   a%%=b,   a стало: %d%n", ppInt1, ppInt2, ppInt1 %= ppInt2);
-        System.out.printf("i было: %d,   ++i,   i стало: %d%n", ppInt1++, ppInt1);
-        System.out.printf("i было: %d,   i++,   i стало: %d%n", ppInt1, ++ppInt1);
-        System.out.printf("i было: %d,   --i,   i стало: %d%n", ppInt1--, ppInt1);
-        System.out.printf("i было: %d,   i--,   i стало: %d%n", ppInt1, --ppInt1);
-        System.out.printf("|%d|%d|%d|%n", ppInt1, 100, ppInt2);
-        System.out.printf("|%5d|%5d|%5d|%n", ppInt1, 100, ppInt2);
-        System.out.printf("|%-5d|%-5d|%-5d|%n", ppInt1, 100, ppInt2);
+        System.out.printf("a было: %d,   b было: %d,   a+=b,   a стало: %d%n", pmi_Int1, pmi_Int2, pmi_Int1 += pmi_Int2);
+        System.out.printf("a было: %d,   b было: %d,   a-=b,   a стало: %d%n", pmi_Int1, pmi_Int2, pmi_Int1 -= pmi_Int2);
+        System.out.printf("a было: %d,   b было: %d,   a*=b,   a стало: %d%n", pmi_Int1, pmi_Int2, pmi_Int1 *= pmi_Int2);
+        System.out.printf("a было: %d,   b было: %d,   a/=b,   a стало: %d%n", pmi_Int1, pmi_Int2, pmi_Int1 /= pmi_Int2);
+        System.out.printf("a было: %d,   b было: %d,   a%%=b,   a стало: %d%n", pmi_Int1, pmi_Int2, pmi_Int1 %= pmi_Int2);
+        System.out.printf("i было: %d,   ++i,   i стало: %d%n", pmi_Int1++, pmi_Int1);
+        System.out.printf("i было: %d,   i++,   i стало: %d%n", pmi_Int1, ++pmi_Int1);
+        System.out.printf("i было: %d,   --i,   i стало: %d%n", pmi_Int1--, pmi_Int1);
+        System.out.printf("i было: %d,   i--,   i стало: %d%n", pmi_Int1, --pmi_Int1);
+        System.out.printf("|%d|%d|%d|%n", pmi_Int1, 100, pmi_Int2);
+        System.out.printf("|%5d|%5d|%5d|%n", pmi_Int1, 100, pmi_Int2);
+        System.out.printf("|%-5d|%-5d|%-5d|%n", pmi_Int1, 100, pmi_Int2);
         System.out.printf("|%5d|%5d|%5d|%n", 123, 123456, 123456789); //Если не влезает в 5 символов, то расширяется до нужного количества.
         System.out.printf("|%.5f|%.15f|%.25f|%n", Math.PI, Math.PI, Math.PI);
-
         System.out.println("#########################################################################################");
         System.out.println("//Операторы сравнения - [> >= < <= != ==] и Условный оператор if--------------------------");
-        ppBite = 5;
-        ppShort = 1;
-        ppBoolean = ppBite > ppShort;
-        System.out.printf("%d >  %d %b%n", ppBite, ppShort, ppBoolean);
-        ppBoolean = ppBite >= ppShort;
-        System.out.printf("%d >= %d %b%n", ppBite, ppShort, ppBoolean);
-        ppBoolean = ppBite < ppShort;
-        System.out.printf("%d <  %d %b%n", ppBite, ppShort, ppBoolean);
-        ppBoolean = ppBite <= ppShort;
-        System.out.printf("%d <= %d %b%n", ppBite, ppShort, ppBoolean);
-        ppBoolean = ppBite != ppShort;
-        System.out.printf("%d != %d %b%n", ppBite, ppShort, ppBoolean);
-        ppBoolean = ppBite == ppShort;
-        System.out.printf("%d == %d %b%n", ppBite, ppShort, ppBoolean);
+        pmy_Bite = 5;
+        pms_Short = 1;
+
+        pmb_Boolean = pmy_Bite > pms_Short;
+        System.out.printf("%d >  %d %b%n", pmy_Bite, pms_Short, pmb_Boolean);
+        pmb_Boolean = pmy_Bite >= pms_Short;
+        System.out.printf("%d >= %d %b%n", pmy_Bite, pms_Short, pmb_Boolean);
+        pmb_Boolean = pmy_Bite < pms_Short;
+        System.out.printf("%d <  %d %b%n", pmy_Bite, pms_Short, pmb_Boolean);
+        pmb_Boolean = pmy_Bite <= pms_Short;
+        System.out.printf("%d <= %d %b%n", pmy_Bite, pms_Short, pmb_Boolean);
+        pmb_Boolean = pmy_Bite != pms_Short;
+        System.out.printf("%d != %d %b%n", pmy_Bite, pms_Short, pmb_Boolean);
+        pmb_Boolean = pmy_Bite == pms_Short;
+        System.out.printf("%d == %d %b%n", pmy_Bite, pms_Short, pmb_Boolean);
+
         System.out.println("-----------------------------------------------------------------------------------------");
 
-        if (ppBite > ppShort) {
-            System.out.printf("%d > %d%n", ppBite, ppShort);
-        } else if (ppBite < ppShort) {
-            System.out.printf("%d < %d%n", ppBite, ppShort);
+        if (pmy_Bite > pms_Short) {
+            System.out.printf("%d > %d%n", pmy_Bite, pms_Short);
+        } else if (pmy_Bite < pms_Short) {
+            System.out.printf("%d < %d%n", pmy_Bite, pms_Short);
         } else {
-            System.out.printf("%d = %d%n", ppBite, ppShort);
+            System.out.printf("%d = %d%n", pmy_Bite, pms_Short);
         }
 
         System.out.println("//Логические операции - [&& || !]--------------------------------------------------------");
-        ppShort = 1;
+        pms_Short = 1;
 
-        //Если в фигурных скобочках одна строчка кода то их можно не писать
-        if (ppShort > 0 && ppShort < 90) System.out.printf("Угол равен: %d Острый%n", ppShort);
-        else if (ppShort == 90) System.out.printf("Угол равен: %d Прямой%n", ppShort);
-        else if (ppShort > 90 && ppShort < 180) System.out.printf("Угол равен: %d Тупой%n", ppShort);
-        else if (ppShort == 180) System.out.printf("Угол равен: %d Развернутый%n", ppShort);
-        else if (ppShort > 180 && ppShort < 360) System.out.printf("Угол равен: %d Выпуклый%n", ppShort);
-        else if (ppShort == 360) System.out.printf("Угол равен: %d Полный%n", ppShort);
-        else System.out.printf("Угол равен: %d Не корректный%n", ppShort);
+        //Если в фигурных скобочках одна строчка, то их можно не писать.
+        if (pms_Short > 0 && pms_Short < 90) System.out.printf("Угол равен: %d Острый%n", pms_Short);
+        else if (pms_Short == 90) System.out.printf("Угол равен: %d Прямой%n", pms_Short);
+        else if (pms_Short > 90 && pms_Short < 180) System.out.printf("Угол равен: %d Тупой%n", pms_Short);
+        else if (pms_Short == 180) System.out.printf("Угол равен: %d Развернутый%n", pms_Short);
+        else if (pms_Short > 180 && pms_Short < 360) System.out.printf("Угол равен: %d Выпуклый%n", pms_Short);
+        else if (pms_Short == 360) System.out.printf("Угол равен: %d Полный%n", pms_Short);
+        else System.out.printf("Угол равен: %d Не корректный%n", pms_Short);
 
+        System.out.println("-----------------------------------------------------------------------------------------");
+        System.out.println("pmSt_String1 = " + pmSt_String1);
+        System.out.println("pmSt_String2 = " + pmSt_String2);
+
+        //Строки надо сравнивать с помощью метода equals.
+        if (pmSt_String1.equals(pmSt_String2)) System.out.println("Строки совпадают");
+        else System.out.println("Строки не совпадают");
+
+        //Thread.sleep(1000);
         System.out.println("//Оператор выбора switch-----------------------------------------------------------------");
-        ppBite = 13;
+        pmy_Bite = 13;
 
-        //int short byte char String
-        //Полная запись запись
-        switch (ppBite) {
+        //int short byte char String.
+        //Полная запись запись.
+        switch (pmy_Bite) {
             case 12:
             case 1:
             case 2:
-                System.out.printf("Зима, месяц № %d%n", ppBite);
+                System.out.printf("Зима, месяц № %d%n", pmy_Bite);
                 break;
             case 3:
             case 4:
             case 5:
-                System.out.printf("Весна, месяц %d%n", ppBite);
+                System.out.printf("Весна, месяц %d%n", pmy_Bite);
                 break;
             case 6:
             case 7:
             case 8:
-                System.out.printf("Лето, месяц № %d%n", ppBite);
+                System.out.printf("Лето, месяц № %d%n", pmy_Bite);
                 break;
             case 9:
             case 10:
             case 11:
-                System.out.printf("Осень, месяц № %d%n", ppBite);
+                System.out.printf("Осень, месяц № %d%n", pmy_Bite);
                 break;
             default:
-                System.out.printf("Не возможный месяц %d%n", ppBite);
+                System.out.printf("Не возможный месяц %d%n", pmy_Bite);
         }
 
-        //Укороченная запись
-        switch (ppBite) {
-            case 12, 1, 2 -> System.out.printf("Зима, месяц № %d%n", ppBite);
-            case 3, 4, 5 -> System.out.printf("Весна, месяц %d%n", ppBite);
-            case 6, 7, 8 -> System.out.printf("Лето, месяц № %d%n", ppBite);
-            case 9, 10, 11 -> System.out.printf("Осень, месяц № %d%n", ppBite);
-            default -> System.out.printf("Не возможный месяц %d%n", ppBite);
+        //Укороченная запись.
+        switch (pmy_Bite) {
+            case 12, 1, 2 -> System.out.printf("Зима, месяц № %d%n", pmy_Bite);
+            case 3, 4, 5 -> System.out.printf("Весна, месяц %d%n", pmy_Bite);
+            case 6, 7, 8 -> System.out.printf("Лето, месяц № %d%n", pmy_Bite);
+            case 9, 10, 11 -> System.out.printf("Осень, месяц № %d%n", pmy_Bite);
+            default -> System.out.printf("Не возможный месяц %d%n", pmy_Bite);
         }
 
         System.out.println("//Оператор break-------------------------------------------------------------------------");
@@ -237,11 +347,12 @@ public class Main {// Классы могут быть public или Default, н
             System.out.println();
         }
 
+        //Thread.sleep(1000);
         System.out.println("//Оператор continue----------------------------------------------------------------------");
 
-        for (int i = 1; i < 15; i++) {
-            if (i % 2 == 0) continue;
-            System.out.printf("%d - Это не четное число%n", i);
+        for (int pmi_i = 1; pmi_i < 15; pmi_i++) {
+            if (pmi_i % 2 == 0) continue;
+            System.out.printf("%d - Это не четное число%n", pmi_i);
         }
 
         System.out.println("#########################################################################################");
@@ -254,27 +365,27 @@ public class Main {// Классы могут быть public или Default, н
 
         System.out.println();
 
-        for (String s : ppMString1) {
+        for (String s : pmMSt_String1) {
             System.out.print(s + " ");
         }
 
         System.out.println();
         System.out.println("//Цикл - while---------------------------------------------------------------------------");
 
-        while (ppBoolean) {
+        while (pmb_Boolean) {
             System.out.println("while - Первый вариант");
-            ppBoolean = false;
+            pmb_Boolean = false;
         }
 
-        while (!ppBoolean) {
+        while (!pmb_Boolean) {
             System.out.println("while - Второй вариант");
-            ppBoolean = true;
+            pmb_Boolean = true;
         }
 
-        int ww = 10;
-        while (ww < 10) {
+        int wd = 10;
+        while (wd < 10) {
             System.out.println("   wile сначала проверяю условие потом делаю тело цикла");
-            ww++;
+            wd++;
         }
 
         System.out.println("//Цикл - do while------------------------------------------------------------------------");
@@ -287,25 +398,50 @@ public class Main {// Классы могут быть public или Default, н
         } while (dw < 10);
 
         System.out.println("#########################################################################################");
-        System.out.println("//Другое - Math (класс математических действий)-----------------------------------------");
-        System.out.printf("Наименьшее число из [%d], [%d] это %d %n", ppInt1, ppInt2, Math.min(ppInt1, ppInt2));
-        System.out.printf("Наибольшее число из [%d], [%d] это %d %n", ppInt1, ppInt2, Math.max(ppInt1, ppInt2));
-        System.out.printf("[%d] в степени [%d] это %f %n", ppInt1, ppInt2, Math.pow(ppInt1, ppInt2));
+        System.out.println("//Другое - Math (класс математических действий)------------------------------------------");
+        System.out.printf("Наименьшее число из [%d], [%d] это %d %n", pmi_Int1, pmi_Int2, Math.min(pmi_Int1, pmi_Int2));
+        System.out.printf("Наибольшее число из [%d], [%d] это %d %n", pmi_Int1, pmi_Int2, Math.max(pmi_Int1, pmi_Int2));
+        System.out.printf("[%d] в степени [%d] это %f %n", pmi_Int1, pmi_Int2, Math.pow(pmi_Int1, pmi_Int2));
         System.out.printf("Число Пи равно %f %n", Math.PI);
-        System.out.println("//Другое - List-------------------------------------------------------------------------");
-        List<Integer> ppLInteger = List.of(0, (int) ppShort, ppInt, 12345);
-        List<String> ppLString = List.of(String.valueOf(ppChar), ppString1, ppString2, "qwerty");
-        System.out.printf("Элемент Листа с индексом %d это: %d%n", 2, ppLInteger.get(2));
-        //Если в List (Integer или String) изменить значения, то в переменной они останутся старые.
+        System.out.println("//Другое - List--------------------------------------------------------------------------");
+        System.out.println("//ArrayList удобен, когда нужен быстрый доступ по индексу, а LinkedList - когда важны операции вставки и удаления.");
+        System.out.println("//Другое - List - ArrayList--------------------------------------------------------------");
+        List<Integer> pmLIn_Integer = List.of(0, (int) pms_Short, pmi_Int, 12345);
+        List<String> pmLSt_String = List.of(String.valueOf(pmc_Char), pmSt_String1, pmSt_String2, "qwerty");
+        System.out.printf("Элемент Листа с индексом %d это: %d%n", 2, pmLIn_Integer.get(2));
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("Если в List (Integer или String) изменить значения, то они не изменятся в переменной и на оборот т.к. они immutable");
         String a1 = "aa";
         String b1 = "bb";
         String c1 = "cc";
-        List<String> pplist1 = List.of(a1, b1, c1);
-        System.out.printf("Переменные String равны   a1=%s, b1=%s, c1=%s%n", a1, b1, c1);
-        System.out.printf("Проверяем значения листа  a1=%s, b1=%s, c1=%s%n", pplist1.get(0), pplist1.get(1), pplist1.get(2));
-        a1 = "aaa";
-        System.out.printf("Задаем a1 = \"aaa\", и запрашиваем значения лист a1=%s, b1=%s, b1=%s.%nОни не изменились.%n%n", pplist1.get(0), pplist1.get(1), pplist1.get(2));
-        //Если в List (Integer[] или String[]) изменить значения, то они изменятся в переменной и на оборот.
+        List<String> pplist1 = new ArrayList<>();
+        pplist1.add(a1);
+        pplist1.add(b1);
+        pplist1.add(c1);
+        System.out.printf("Переменные String равны  a1=%s, b1=%s, c1=%s%n", a1, b1, c1);
+        System.out.printf("Проверяем значения List  a1=%s, b1=%s, c1=%s%n", pplist1.get(0), pplist1.get(1), pplist1.get(2));
+        a1 = "xx";
+        pplist1.set(1, "yy");
+        System.out.printf("Задаем a1 = \"xx\", и  pplist1.set(1, \"yy\")\n");
+        System.out.printf("Переменные String равны  a1=%s, b1=%s, c1=%s%n", a1, b1, c1);
+        System.out.printf("Проверяем значения List  a1=%s, b1=%s, c1=%s%n", pplist1.get(0), pplist1.get(1), pplist1.get(2));
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("Если изменить значения переменной StringBuilder, то изменятся в листе т.к. StringBuilder mutable");
+        StringBuilder a1_sb = new StringBuilder("aa");
+        StringBuilder b1_sb = new StringBuilder("bb");
+        StringBuilder c1_sb = new StringBuilder("cc");
+        List<StringBuilder> pplist1_sb = List.of(a1_sb, b1_sb, c1_sb);
+        System.out.printf("Переменные StringBuilder равны   a1_sb=%s, b1_sb=%s, c1_sb=%s%n", a1_sb, b1_sb, c1_sb);
+        System.out.printf("Проверяем значения листа         a1_sb=%s, b1_sb=%s, c1_sb=%s%n", pplist1_sb.get(0), pplist1_sb.get(1), pplist1_sb.get(2));
+        a1_sb.append("xxx");
+        System.out.println("Добавляем к a1_sb = \"aaa\"");
+        System.out.printf("Переменные StringBuilder равны   a1_sb=%s, b1_sb=%s, c1_sb=%s%n", a1_sb, b1_sb, c1_sb);
+        System.out.printf("Проверяем значения листа         a1_sb=%s, b1_sb=%s, c1_sb=%s%n", pplist1_sb.get(0), pplist1_sb.get(1), pplist1_sb.get(2));
+
+        System.out.println("-----------------------------------------------------------------------------------------");
+        System.out.println("Если в List (Integer[] или String[]) изменить значения, то они изменятся в переменной и на оборот т.к. они mutable");
         String[] a2 = {"aaa"};
         String[] b2 = {"bbb"};
         String[] c2 = {"ccc"};
@@ -320,6 +456,7 @@ public class Main {// Классы могут быть public или Default, н
         System.out.printf("Задаем pplist2.get(0)[0] = \"cCc\", и запрашиваем значения. Они изменились:%n");
         System.out.printf("Переменные String[] равны a2=%s, b2=%s, c2=%s%n", a2[0], b2[0], c2[0]);
         System.out.printf("Проверяем значения листа  a2=%s, b2=%s, c2=%s%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
+        Thread.sleep(1000);
         System.out.println("#########################################################################################");
         pcCar.pfInfo();
         pcCar ppAuto1 = new pcCar("Ford");
@@ -360,14 +497,7 @@ public class Main {// Классы могут быть public или Default, н
 
     }
 }
-//////////////////////////////////////////////////
-// ppXXXXX - Переменная - Оъекта в методе
-// pgXXXXX - Переменная - Оъекта в классе
-// psXXXXX - Переменная - Класса
-// pfXXXXX - Функции (мои методы)
-// pcXXXXX - Класс
-// piXXXXX - Индерфейс
-//////////////////////////////////////////////////
+
 class pcCar implements piInfoCar {//implements piInfoCar - Означает что клас привязан к интерфейсу piInfoCar и в классе должны быть реализованны все методы заявленные в интерфейсе
     //--Переменные|Н
     //"static" - Это переменная не объекта, а класса и поэтому при её смене она меняется сразу у всех объектов.
@@ -456,13 +586,16 @@ class pcCar implements piInfoCar {//implements piInfoCar - Означает чт
 
 class pcCFura extends pcCar implements piInfoCar {//"extends pcCar" - Значит что pcCFura это подкласс pcCar и тоже может использовать методы pcCar.
     private int pgIdFura;
+
     public pcCFura(String pgMarka, int pgIdFura) {//Конструктор, обязывает при создании объекта задать марку и id.
         super(pgMarka);//Марку по требованию вышестоящего класса.
         this.pgIdFura = pgIdFura;
     }
+
     public void pfShowInfo() {
         System.out.println("Тягач:  " + getPpMarka() + ", " + pgIdFura);
     }
+
     public void setWheel(int xxx) { //Переопределенный метод. Вместо метода из класса pcCar будет использоваться метод из pcCFura
         if (xxx > 4) {
             pgWheel = xxx;
@@ -472,6 +605,7 @@ class pcCFura extends pcCar implements piInfoCar {//"extends pcCar" - Значи
             System.out.printf("Вы ввели не корректное число колес %d.%nМы сделаем вам стандартную комплектацию, количество колес для Тягача: %d.%n", xxx, pgWheel);
         }
     }
+
     public void pfInfoFura() {
         System.out.println(pgWheel); //Публичные переменные мз класса pcCar
         System.out.println(PSSTAR);  //Публичные переменные мз класса pcCar
