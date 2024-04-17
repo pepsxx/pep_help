@@ -370,6 +370,10 @@ public class Main {// Классы могут быть public или Default, н
         System.out.printf("Переменные String[] равны a2=%s, b2=%s, c2=%s%n", a2[0], b2[0], c2[0]);
         System.out.printf("Проверяем значения листа  a2=%s, b2=%s, c2=%s%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
         //Thread.sleep(1000);
+        System.out.println("////Коллекции - List - ArrayList---------------------------------------------------------");
+        System.out.println("////Коллекции - List - LinkedList--------------------------------------------------------");
+        System.out.println("////Коллекции - List - Vector------------------------------------------------------------");
+        System.out.println("////Коллекции - List - Vector - Stack----------------------------------------------------");
         System.out.println("#########################################################################################");
     }
 
