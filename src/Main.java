@@ -316,9 +316,10 @@ public class Main {// Классы могут быть public или Default, н
         System.out.printf("Число Пи равно %f %n", Math.PI);
 
         System.out.println("#########################################################################################");
-        System.out.println("//Коллекции - List-----------------------------------------------------------------------");
-        System.out.println("//ArrayList удобен, когда нужен быстрый доступ по индексу, а LinkedList - когда важны операции вставки и удаления.");
-        System.out.println("////Коллекции - List - ArrayList---------------------------------------------------------");
+        System.out.println("//Collection ----------------------------------------------------------------------------");
+        System.out.println("////Collection - List-----------------------------------------------------------------------");
+        System.out.println("////ArrayList удобен, когда нужен быстрый доступ по индексу, а LinkedList - когда важны операции вставки и удаления.");
+        System.out.println("//////Collection - List - ArrayList---------------------------------------------------------");
         List<Integer> pmLIn_Integer = List.of(0, (int) pms_Short, pmi_Int, 12345);
         List<String> pmLSt_String = List.of(String.valueOf(pmc_Char), pmSt_String1, pmSt_String2, "qwerty");
         System.out.printf("Элемент Листа с индексом %d это: %d%n", 2, pmLIn_Integer.get(2));
@@ -370,10 +371,11 @@ public class Main {// Классы могут быть public или Default, н
         System.out.printf("Переменные String[] равны a2=%s, b2=%s, c2=%s%n", a2[0], b2[0], c2[0]);
         System.out.printf("Проверяем значения листа  a2=%s, b2=%s, c2=%s%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
         //Thread.sleep(1000);
-        System.out.println("////Коллекции - List - ArrayList---------------------------------------------------------");
-        System.out.println("////Коллекции - List - LinkedList--------------------------------------------------------");
-        System.out.println("////Коллекции - List - Vector------------------------------------------------------------");
-        System.out.println("////Коллекции - List - Vector - Stack----------------------------------------------------");
+        System.out.println("//////Collection - List - LinkedList-----------------------------------------------------");
+        System.out.println("//////Collection - List - Vector---------------------------------------------------------");
+        System.out.println("//////Collection - List - Vector - Stack-------------------------------------------------");
+        System.out.println("////Collection - Map---------------------------------------------------------------------");
+        System.out.println("////Collection - Set---------------------------------------------------------------------");
         System.out.println("#########################################################################################");
     }
 
