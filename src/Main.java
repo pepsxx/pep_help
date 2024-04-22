@@ -372,10 +372,11 @@ public class Main {// Классы могут быть public или Default, н
         System.out.printf("Проверяем значения листа  a2=%s, b2=%s, c2=%s%n", pplist2.get(0)[0], pplist2.get(1)[0], pplist2.get(2)[0]);
         //Thread.sleep(1000);
         System.out.println("//////Collection - List - LinkedList-----------------------------------------------------");
-        System.out.println("//////Collection - List - Vector---------------------------------------------------------");
+        System.out.println("//////Collection - List - Vector (Устарел)-----------------------------------------------");
         System.out.println("//////Collection - List - Vector - Stack-------------------------------------------------");
         System.out.println("////Collection - Map---------------------------------------------------------------------");
         System.out.println("////Collection - Set---------------------------------------------------------------------");
+        System.out.println("////Collection - Queue-------------------------------------------------------------------");
         System.out.println("#########################################################################################");
     }
 
