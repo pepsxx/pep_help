@@ -378,6 +378,18 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("////Collection - Set---------------------------------------------------------------------");
         System.out.println("////Collection - Queue-------------------------------------------------------------------");
         System.out.println("#########################################################################################");
+        System.out.println("//Object - Методы для всех классов-------------------------------------------------------");
+        Object poOb_object1 = new Object();
+        Object poOb_object2 = new Object();
+        System.out.println("//Object - equals - сравнение объектов---------------------------------------------------");
+        System.out.println("//Object - hashCode - Хеш код объекта----------------------------------------------------");
+        System.out.println("//Object - toString - Получение String от объекта (по умолчинию ссылка)------------------");
+        System.out.println("//Object - getClass - Получение класса к которому относиться объект----------------------");
+        System.out.println("poOb_object1.equals(poOb_object2) = " + poOb_object1.equals(poOb_object2));
+        System.out.println("poOb_object1.hashCode() = " + poOb_object1.hashCode());
+        System.out.println("poOb_object1.toString() = " + poOb_object1.toString());
+        System.out.println("poOb_object1.getClass() = " + poOb_object1.getClass());
+        System.out.println("#########################################################################################");
     }
 
     public static void pf_pepLogo() {
