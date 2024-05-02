@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Main {// Классы могут быть public или Default, но в одном java файле может быть только 1 public
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws InterruptedException {
         pf_pepLogo();
         pf_pepNote();
         //Thread.sleep(1000);
@@ -202,7 +202,7 @@ public class Main {// Классы могут быть public или Default, н
             case 1:
             case 2:
                 System.out.printf("Зима, месяц № %d%n", pmy_Bite);
-                break;
+                break; // Если break не написать, то выполнится и следующий блок (System.out.printf("Весна, месяц %d%n", pmy_Bite);).
             case 3:
             case 4:
             case 5:
@@ -222,7 +222,7 @@ public class Main {// Классы могут быть public или Default, н
                 System.out.printf("Не возможный месяц %d%n", pmy_Bite);
         }
 
-        //Укороченная запись.
+        //Лямбда запись.
         switch (pmy_Bite) {
             case 12, 1, 2 -> System.out.printf("Зима, месяц № %d%n", pmy_Bite);
             case 3, 4, 5 -> System.out.printf("Весна, месяц %d%n", pmy_Bite);
@@ -237,6 +237,13 @@ public class Main {// Классы могут быть public или Default, н
             System.out.println("Запущен бесконечный цикл который остановил \"break\"");
             break;
         }
+
+        System.out.println("for c двумя инкрементами");
+        int ii = 10;
+        for (int i = 0; i < 5; i++, ii++) {
+            System.out.println("i = " + i + "    ii = " + ii);
+        }
+
 
         System.out.println("break во внутреннем цикле по j = 2");
         for (int i = 0; i < 5; i++) {
@@ -258,7 +265,27 @@ public class Main {// Классы могут быть public или Default, н
             System.out.println();
         }
 
-        //Thread.sleep(1000);
+        System.out.println("break по метке во внутреннем цикле по i = 2 выход из внешнего цикла по метке");
+        metka:
+        for (int i = 0; i < 5; i++) {
+            System.out.printf("i=%d j=", i);
+            for (int j = 0; j < 5; j++) {
+                if (i == 2) break metka;
+                System.out.print(" " + j);
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        int pmi_Int4 = 44;
+        System.out.println("pmi_Int = " + pmi_Int1 + " > " + pmi_Int2 + " ? " + pmi_Int3 + " : " + pmi_Int4);
+        pmi_Int = pmi_Int1 > pmi_Int2 ? pmi_Int3 : pmi_Int4;
+        // pmi_Int1 > pmi_Int2
+        // 1. если true  то справа от ":"
+        // 2. если false то слева  от ":"
+        System.out.println("pmi_Int = " + pmi_Int);
+
+        //Thread.sleep(10000);
         System.out.println("//Оператор continue----------------------------------------------------------------------");
 
         for (int pmi_i = 1; pmi_i < 15; pmi_i++) {
