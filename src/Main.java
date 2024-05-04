@@ -1,12 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
+import static java.lang.String.join;
 
 public class Main {// Классы могут быть public или Default, но в одном java файле может быть только 1 public
 
     public static void main(String[] args) throws InterruptedException {
         pf_pepLogo();
         pf_pepNote();
-        //Thread.sleep(1000);
+//        Thread.sleep(1000);
         System.out.println("//Типы данных: Примитивные данные--------------------------------------------------------");
         System.out.println("//Типы данных: //Символьные--------------------------------------------------------------");
         char pmc_Char = 'c';
@@ -36,7 +40,7 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("//Типы данных: //Булевы------------------------------------------------------------------");
         boolean pmb_Boolean = true; // true или false.
         System.out.println("boolean: " + pmb_Boolean);
-        //Thread.sleep(1000);
+//        Thread.sleep(1000);
         System.out.println("//Типы данных: Ссылочные-----------------------------------------------------------------");
         System.out.println("//Типы данных: //Классы------------------------------------------------------------------");
         System.out.println("//Типы данных: //Класс - String (immutable)----------------------------------------------");
@@ -49,6 +53,7 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("pmSt_String2: " + pmSt_String2);
         System.out.println("//Типы данных: //Класс - String //Метод - length      - длина строки---------------------");
         System.out.println("//Типы данных: //Класс - String //Метод - equals      - сравнение строк------------------");
+        System.out.println("//Типы данных: //Класс - String //Метод - equals      - сравнение строк без учета регистра");
         System.out.println("//Типы данных: //Класс - String //Метод - charAt      - символ строки--------------------");
         System.out.println("//Типы данных: //Класс - String //Метод - indexOf     - индекс первого искомого символа--");
         System.out.println("//Типы данных: //Класс - String //Метод - contains    - содержит ли строка подстроку-----");
@@ -56,9 +61,17 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("//Типы данных: //Класс - String //Метод - replace     - замена символов или части строки-");
         System.out.println("//Типы данных: //Класс - String //Метод - toUpperCase - перевод в заглавные--------------");
         System.out.println("//Типы данных: //Класс - String //Метод - toLowerCase - перевод в строчные---------------");
+        System.out.println("//Типы данных: //Класс - String //Метод - compareTo   - лексикографического сравнения строк");
+        System.out.println("//Типы данных: //Класс - String //Метод - startsWith  - Проверка, начинается ли строка с");
+        System.out.println("//Типы данных: //Класс - String //Метод - endsWith    - Проверка, заканчивается ли строка на");
+        System.out.println("//Типы данных: //Класс - String //Метод - trim        - Убирает пробелы по краям");
+        System.out.println("//Типы данных: //Класс - String //Метод - join        - Возвращает String все объекты через указанный разделитель");
         System.out.println("Примеры:");
         System.out.println("Длина строки pmSt_String1: " + pmSt_String1.length());
         System.out.println("Сравнение строк pmSt_String1 и pmSt_String2: " + pmSt_String1.equals(pmSt_String2));
+        System.out.println("Правильно защищены от null в переменной - \"Test\".equals(pmSt_String2) = " + "Test".equals(pmSt_String2));
+        System.out.println("Не правильно                            - pmSt_String2.equals(\"Test\") = " + pmSt_String2.equals("Test"));
+        System.out.println("Сравнение строк pmSt_String1 и pmSt_String2 без учета регистра: " + pmSt_String1.equalsIgnoreCase(pmSt_String2));
         System.out.println("2ой Символ строки pmSt_String1: " + pmSt_String1.charAt(1));
         System.out.println("Индекс символа 'и' в pmSt_String1: " + pmSt_String1.indexOf('и'));
         System.out.println("в pmSt_String2 есть pmSt_String1: " + pmSt_String2.contains(pmSt_String1));
@@ -68,12 +81,18 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("Замена 'и' на 'е': " + pmSt_String2.replace('и', 'е'));
         System.out.println("Все в заглавные: " + pmSt_String2.toUpperCase());
         System.out.println("Все в строчные: " + pmSt_String2.toLowerCase());
+        System.out.println("Лексикографического сравнения строк: " + pmSt_String1.compareTo(pmSt_String2));
+        System.out.println("Проверка, начинается ли pmSt_String2 с pmSt_String1: " + pmSt_String2.startsWith(pmSt_String1));
+        System.out.println("Проверка, заканчивается ли pmSt_String2 на pmSt_String1: " + pmSt_String2.endsWith(pmSt_String1));
+        System.out.println("-->   Qwe   Rty   <--- .trim() -->" + "   Qwe   Rty   ".trim() + "<---");
+        String[] pmMSt_String = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
+        System.out.println("Обеекты - Месяца, Разделитель -=- : " + join(" -=- ", pmMSt_String));
         System.out.println("//Типы данных: //Класс - String (mutable)------------------------------------------------");
         StringBuilder pmSb_String1 = new StringBuilder("Mutable - Изменяемый класс.");
         System.out.println("pmSb_String1 = " + pmSb_String1);
         pmSb_String1.append(" Добавлен текст, а не создан новый объект с новой ссылкой");
         System.out.println("pmSb_String1 = " + pmSb_String1);
-        //Thread.sleep(1000);
+//        Thread.sleep(1000);
         System.out.println("//Типы данных: //Массивы-----------------------------------------------------------------");
         System.out.println("//Типы данных: //Массивы - Одномерные----------------------------------------------------");
         String[] pmMSt_String1 = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
@@ -105,7 +124,7 @@ public class Main {// Классы могут быть public или Default, н
             }
             System.out.println();
         }
-        //Thread.sleep(1000);
+//        Thread.sleep(1000);
         System.out.println("#########################################################################################");
         System.out.println("//Вывод данных---------------------------------------------------------------------------");
         System.out.print("System.out.print   - Нет перехода на новую строку. ");
@@ -416,6 +435,13 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("poOb_object1.hashCode() = " + poOb_object1.hashCode());
         System.out.println("poOb_object1.toString() = " + poOb_object1.toString());
         System.out.println("poOb_object1.getClass() = " + poOb_object1.getClass());
+        System.out.println("#########################################################################################");
+        System.out.println("//Random - Методы для всех классов-------------------------------------------------------");
+        Random po_random = new Random();
+        for (int i = 0; i < 10; i++) {
+            System.out.print("po_random.nextInt(10) = " + po_random.nextInt(30, 60)); // Старый вариант.
+            System.out.println(" ThreadLocalRandom.current().nextInt(10) = " + ThreadLocalRandom.current().nextInt(60, 90));  // Новый вариант.
+        }
         System.out.println("#########################################################################################");
     }
 
