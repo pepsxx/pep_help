@@ -93,6 +93,15 @@ public class Main {// Классы могут быть public или Default, н
         pmSb_String1.append(" Добавлен текст, а не создан новый объект с новой ссылкой");
         System.out.println("pmSb_String1 = " + pmSb_String1);
 //        Thread.sleep(1000);
+        System.out.println("//Типы данных: //Класс - String //Метод - append      - Добавление текста----------------");
+        System.out.println("//Типы данных: //Класс - String //Метод - reverse     - Перевернуть текст задом на перёд-");
+        System.out.println("//Типы данных: //Класс - String //Метод - delete(x,y) - Удаление с индекса x по у--------");
+        StringBuilder poSb_s1 = new StringBuilder();
+        System.out.println("poSb_s1 = " + poSb_s1);
+        System.out.println("poSb_s1.append(\"Техт\") = " + poSb_s1.append("Техт"));
+        System.out.println("poSb_s1.reverse() = " + poSb_s1.reverse());
+        System.out.println("poSb_s1.delete(2,poSb_s1.length()) = " + poSb_s1.delete(2, poSb_s1.length()));
+//        Thread.sleep(10000);
         System.out.println("//Типы данных: //Массивы-----------------------------------------------------------------");
         System.out.println("//Типы данных: //Массивы - Одномерные----------------------------------------------------");
         String[] pmMSt_String1 = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
