@@ -258,6 +258,16 @@ public class Main {// Классы могут быть public или Default, н
             case 9, 10, 11 -> System.out.printf("Осень, месяц № %d%n", pmy_Bite);
             default -> System.out.printf("Не возможный месяц %d%n", pmy_Bite);
         }
+        //Лямбда запись - Присваивание.
+        pmSt_String1 = switch (pmy_Bite) {
+            case 12, 1, 2 -> "Зима";
+            case 3, 4, 5 -> "Весна";
+            case 6, 7, 8 -> "Лето";
+            case 9, 10, 11 -> "Осень";
+            default -> "Не возможный месяц";
+        };
+        System.out.println("pmSt_String1 = " + pmSt_String1);
+//        Thread.sleep(10_000);
 
         System.out.println("//Оператор break-------------------------------------------------------------------------");
 
@@ -331,11 +341,27 @@ public class Main {// Классы могут быть public или Default, н
 
         System.out.println();
 
+        for (;;){ // В for параметры могут быть пустыми.
+            System.out.println("pmy_Bite = " + pmy_Bite);
+            pmy_Bite--;
+            if (pmy_Bite<1) break;
+        }
+
+        System.out.println();
+
+        for (int i = 'a'; i < 'z'; i++) { // Можно итерироваться по символам
+            System.out.print((char) i + " ");
+        }
+
+        System.out.println();
+
         for (String s : pmMSt_String1) {
             System.out.print(s + " ");
         }
 
         System.out.println();
+
+//        Thread.sleep(10_000);
         System.out.println("//Цикл - while---------------------------------------------------------------------------");
 
         while (pmb_Boolean) {
@@ -476,17 +502,29 @@ public class Main {// Классы могут быть public или Default, н
         // Logo - Конец.
     }
 
-    public static void pf_pepNote() {
+    private static void pf_pepNote() {
         // Заметки - Начало.
-        // v2.4.0.4.1.6.
+        // V2.4.0.5.2.7.
+
         System.out.println("""
                 /////////////////////////////////////////////////////////////////////////////////////////
                 // Ctrl + D             - Создать копию выделенной(х) строки(ок) кода снизу.
                 // Ctrl + /             - Закомментировать выделенную(е) строку(и).
+                // Ctrl + P             - Показать все перегрузки конструктора.
                 // Ctrl + Shift + /     - Закомментировать выделанный кусок кода.
+                // Ctrl + Shift + Вверх - Переместить блок (метод) вверх над другим блоком (методом).
+                // Ctrl + Alt - V       - Создать переменную из значения.
+                // Ctrl + Alt - C       - Создать константу.
+                // Ctrl + Alt - N       - Прописать значение вместо переменной.
                 // Ctrl + Alt - L       - Выровнять код по стилю.
+                // Ctrl + Alt - T       - Добавить if, while, try, synchronized.
+                // Ctrl + Alt - P       - Переместить переменную в параметры метода.   
+                // Ctrl + Alt - M       - Убрать блок в метод.   
+                // Ctrl + Alt - F       - Сделать переменную полем класса.   
+                // Ctrl + Alt - B       - Перейти к месту декларации переменной.   
                 // Ctrl + Alt  + Insert - Меню с выбором создания: Класса и др...
                 //        Alt  + Insert - Меню с выбором создания: Конструктора, Гетора, Сетора...
+                // Alt + Shift + Insert - Включение/выключение режима одновременного редактирование нескольких сторк.
                 // Shift + F10          - Запустить код.");
                 // psvm - Создать метод main
                 // sout - Создать метод System.out.println();
@@ -498,60 +536,64 @@ public class Main {// Классы могут быть public или Default, н
                 //// "private"   - Переменную можно будет поменять только через метод (правильно безопасно).
                 // "static"      - Это переменная не объекта, а класса и поэтому при её смене она меняется сразу у всех объектов.
                 // "final"       - Переменная которую нельзя менять (ПРИНЯТО ПИСАТЬ ИМЯ БОЛЬШИМИ БУКВАМИ).
-                // pmxxxxxx - Переменная - Объекта в методе.
-                // pgxxxxxx - Переменная - Объекта в классе ("глобальная").
-                // psxxxxxx - Переменная - Класса Общая.      (static)
-                // PXXXXXXX - Переменная - Неизменная. (final) //Конвенция - Всё большими буквами.
+                // pmxxxxxxx - Переменная - Объекта в методе.
+                // pgxxxxxxx - Переменная - Объекта в классе ("глобальная").
+                // psxxxxxxx - Переменная - Класса Общая.      (static)
+                // PXXXXXXXx - Переменная - Неизменная. (final) //Конвенция - Всё большими буквами.
                 //
-                // Pc_Xxxxx - Класс.                           //Конвенция - С большой буквы.
-                // Pi_Xxxxx - Интерфейс.
-                // Pe_Xxxxx - Перечисления.
-                // Pp_Xxxxx - Пакет.
-                // pf_Xxxxx - Функции (мои методы) ничего не возвращает.
-                // pfi_Xxxx - Функции (мои методы) возвращает int.
-                // po_Xxxxx - Объекты. Кроме: Оберточные, Массивы, Листы.
-                // poM_Xxxx - Массив объектов.
+                // Pc_Xxxxxx - Класс.                           //Конвенция - С большой буквы.
+                // Pi_Xxxxxx - Интерфейс.
+                // Pe_Xxxxxx - Перечисления.
+                // Pp_Xxxxxx - Пакет.
+                // Pa_Xxxxxx - Аннотация.
+                // pf_Xxxxxx - Функции (мои методы) ничего не возвращает.
+                // pfi_Xxxxx - Функции (мои методы) возвращает int.
+                // po_Xxxxxx - Объекты. Кроме: Оберточные, Массивы.
                 //
-                // poEn_Xxx -> Enum.
-                // poSb_Xxx -> StringBuilder.
-                // poSc_Xxx -> Scanner.
-                // poFi_Xxx -> File.
-                // poFiOS_X -> FileOutputStream.
-                // poFiIS_X -> FileInputStream.
-                // poObOS_X -> ObjectOutputStream.
-                // poObIS_X -> ObjectInputStream.
+                // poEn_Xxxx -> Enum.
+                // poSb_Xxxx -> StringBuilder.
+                // poSc_Xxxx -> Scanner.
+                // poFi_Xxxx -> File.
+                // poFiOS_Xx -> FileOutputStream.
+                // poFiIS_Xx -> FileInputStream.
+                // poObOS_Xx -> ObjectOutputStream.
+                // poObIS_Xx -> ObjectInputStream.
+                // poTh_Xxxx -> Thread.
+                // poRa_Xxxx -> Random.
+                //
+                // poLi_Xxxx - List. (ArrayList, LinkedList).
+                // poSt_Xxxx - List - Vector - Stack.
+                // poSe_Xxxx - Set. (HashSet, LinkedHashSet, TreeSet).
+                // poMa_Xxxx - Map. (HashMap, LinkedHashMap, TreeMap).
+                // poQu_Xxxx - Queue.
                 //
                 // set_pgi_age - Сетор для переменной pgi_ag. // Лучше создавать средой разработки.
                 // get_pgi_age - Гетор для переменной pgi_ag. // Лучше создавать средой разработки.
                 // get_Xxxxxxx - Гетор для ещё чего-либо.
                 // В методах set и get возможно проще использовать переменную "pgxxxxxx" с "this." вместо "ppxxxxxx".
                 //
-                // pmс_Xxxx - Переменная примитивная -> char.
-                // pmy_Xxxx - Переменная примитивная -> byte.
-                // pms_Xxxx - Переменная примитивная -> short.
-                // pmi_Xxxx - Переменная примитивная -> int.
-                // pml_Xxxx - Переменная примитивная -> long.
-                // pmf_Xxxx - Переменная примитивная -> float.
-                // pmd_Xxxx - Переменная примитивная -> double.
-                // pmb_Xxxx - Переменная примитивная -> boolean.
+                // pmс_Xxxxx - Переменная примитивная -> char.
+                // pmy_Xxxxx - Переменная примитивная -> byte.
+                // pms_Xxxxx - Переменная примитивная -> short.
+                // pmi_Xxxxx - Переменная примитивная -> int.
+                // poLi_Xxxxx - Переменная примитивная -> long.
+                // pmf_Xxxxx - Переменная примитивная -> float.
+                // pmd_Xxxxx - Переменная примитивная -> double.
+                // pmb_Xxxxx - Переменная примитивная -> boolean.
                 //
-                // pmDo_Xxx - Переменная - Ссылочная -> Double.
-                // pmFl_Xxx - Переменная - Ссылочная -> Float.
-                // pmLo_Xxx - Переменная - Ссылочная -> Long.
-                // pmIn_Xxx - Переменная - Ссылочная -> Integer.
-                // pmSh_Xxx - Переменная - Ссылочная -> Short.
-                // pmBy_Xxx - Переменная - Ссылочная -> Byte.
-                // pmCh_Xxx - Переменная - Ссылочная -> Character.
-                // pmBo_Xxx - Переменная - Ссылочная -> Boolean.
+                // pmDo_Xxxx - Переменная - Ссылочная -> Double.
+                // pmFl_Xxxx - Переменная - Ссылочная -> Float.
+                // pmLo_Xxxx - Переменная - Ссылочная -> Long.
+                // pmIn_Xxxx - Переменная - Ссылочная -> Integer.
+                // pmSh_Xxxx - Переменная - Ссылочная -> Short.
+                // pmBy_Xxxx - Переменная - Ссылочная -> Byte.
+                // pmCh_Xxxx - Переменная - Ссылочная -> Character.
+                // pmBo_Xxxx - Переменная - Ссылочная -> Boolean.
                 //
-                // pmМi_Xxxx - Масив - Одномерный  -> int.
-                // pmМMi_Xxx - Масив - Двумерный   -> int.
-                // pmМSt_Xxx - Масив - Одномерный  -> String.
-                // pmМMSt_Xx - Масив - Двумерный   -> String.
-                // pmLSt_Xx - Лист с -> String.
-                // pmLIn_Xx - Лист с -> Intejer.
-                // pmLMSt_X - Лист с -> Масив - Одномерный -> String.
-                // pmLOb_Xx - Лист с -> Объектами.
+                // pmМi_Xxxxx - Масив - Одномерный  -> int.
+                // pmМMi_Xxxx - Масив - Двумерный   -> int.
+                // pmМSt_Xxxx - Масив - Одномерный  -> String.
+                // pmМMSt_Xxx - Масив - Двумерный   -> String.
                 /////////////////////////////////////////////////////////////////////////////////////////
                 """);
         // Заметки - Конец.
