@@ -1,4 +1,4 @@
-package Example.T01;
+package Example.T01_PSF;
 
 class PersonPrivate {                      // Private - не может быть (Не сможем обратиться к нему)
     private String name;                   // Private - Ok (Виден только в этом классе)

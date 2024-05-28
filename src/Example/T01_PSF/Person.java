@@ -1,4 +1,4 @@
-package Example.T01;
+package Example.T01_PSF;
 
 public class Person {
     String name;

@@ -1,4 +1,4 @@
-package Example.T01;
+package Example.T01_PSF;
 
 class PersonStatic {                      // Static - не может быть
     static String name;                   // Static - Ok (поле не объекта, а класса)
