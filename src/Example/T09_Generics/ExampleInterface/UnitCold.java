@@ -1,6 +1,6 @@
-package Example.T09_Generics.Example;
+package Example.T09_Generics.ExampleInterface;
 
-public class UnitCold<T extends GunCold> extends Unit<T>{
+public class UnitCold<T extends GunInterfaceCold> extends Unit<T> {
     public UnitCold(String name) {
         super(name);
     }

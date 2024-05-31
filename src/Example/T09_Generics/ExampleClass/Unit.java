@@ -1,4 +1,4 @@
-package Example.T09_Generics.Example;
+package Example.T09_Generics.ExampleClass;
 
 public abstract class Unit<T extends Gun> {
     T gun;
