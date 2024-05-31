@@ -1,7 +1,5 @@
 package Example.T06_Interfase;
 
-import java.time.Year;
-
 public interface TestInterfaceMain extends TestInterfaceSub1, TestInterfaceSub2 {
     int YEAR = 2024;                           // public static final - уже подразумевается.
 
