@@ -1,6 +1,7 @@
 package Example.T12_Map;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,5 +18,19 @@ public class Main {
         System.out.println("map.containsValue(\"Один\") = " + map.containsValue("Один"));
         System.out.println("map.isEmpty() = " + map.isEmpty()); // Пустая?
 
+        for (Integer integer : map.keySet()) {
+            System.out.println("integer = " + integer);
+        }
+
+        for (String value : map.values()) {
+            System.out.println("value = " + value);
+        }
+
+        for (Map.Entry<Integer, String> integerStringEntry : map.entrySet()) {
+            System.out.println();
+            System.out.println("integerStringEntry = " + integerStringEntry);
+            System.out.println("integerStringEntry.getKey() = " + integerStringEntry.getKey());
+            System.out.println("integerStringEntry.getValue() = " + integerStringEntry.getValue());
+        }
     }
 }

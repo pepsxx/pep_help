@@ -33,6 +33,7 @@ public class Main {
                 LinkedList |    n    |    n    |    1    |    n    |    1    |    1    |    n    |    1    |
                        Set |         |         |         |         |         |         |         |         |
                        Map | 1/log n |  log n  | 1/log n | 1/log n | 1/log n | 1/log n | 1/log n | 1/log n |
+                   TreeMap |  log n  |  log n  |  log n  |  log n  |  log n  |  log n  |  log n  |  log n  |
                 """);
 
 

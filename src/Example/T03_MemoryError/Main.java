@@ -1,4 +1,4 @@
-package Example.T03_Memory;
+package Example.T03_MemoryError;
 
 import java.util.ArrayList;
 import java.util.List;

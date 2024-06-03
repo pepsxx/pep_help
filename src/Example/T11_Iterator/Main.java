@@ -1,12 +1,14 @@
 package Example.T11_Iterator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> listSource = List.of("Ноль", "Один", "Два", "Три", "Четыре", "Пять", "Шесть", "Семь", "Восемь", "Девять");
+        List<String> listSource = List.of("Ноль", "Один", "Два", "Три", "Четыре", "Пять", "Шесть", "Семь", "Восемь", "Девять");     // Неизменяемый лист
+        List<String> listTest = Arrays.asList("Ноль", "Один", "Два", "Три", "Четыре", "Пять", "Шесть", "Семь", "Восемь", "Девять"); //   Изменяемый лист
         List<String> list = new ArrayList<>(listSource);
 
         for (Iterator<String> iterator = list.iterator(); iterator.hasNext(); ) {
