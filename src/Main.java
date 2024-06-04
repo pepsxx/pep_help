@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -7,7 +9,7 @@ import static java.lang.String.join;
 
 public class Main {// Классы могут быть public или Default, но в одном java файле может быть только 1 public
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         pf_pepLogo();
         pf_pepNote();
 //        Thread.sleep(1000);
@@ -477,6 +479,23 @@ public class Main {// Классы могут быть public или Default, н
             System.out.print("po_random.nextInt(10) = " + po_random.nextInt(30, 60)); // Старый вариант.
             System.out.println(" ThreadLocalRandom.current().nextInt(10) = " + ThreadLocalRandom.current().nextInt(60, 90));  // Новый вариант.
         }
+        System.out.println("#########################################################################################");
+        System.out.println("//Files ---------------------------------------------------------------------------------");
+        File dir = new File("resources");
+        System.out.println("dir.exists()           = " + dir.exists());
+        System.out.println("dir.mkdir()            = " + dir.mkdir());
+        System.out.println("dir.isDirectory()      = " + dir.isDirectory());
+        System.out.println("dir.isFile()           = " + dir.isFile());
+        System.out.println("dir.getParent()        = " + dir.getParent());
+        System.out.println("dir.getAbsolutePath()  = " + dir.getAbsolutePath());
+        File file = new File(dir.getName() + "\\testFile.txt");
+        System.out.println("file.exists()          = " + file.exists());
+        System.out.println("file.createNewFile()   = " + file.createNewFile());
+        System.out.println("file.isDirectory()     = " + file.isDirectory());
+        System.out.println("file.isFile()          = " + file.isFile());
+        System.out.println("file.getParent()       = " + file.getParent());
+        System.out.println("file.getParent()       = " + file.getParent());
+        System.out.println("file.getAbsolutePath() = " + file.getAbsolutePath());
         System.out.println("#########################################################################################");
     }
 
