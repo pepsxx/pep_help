@@ -1,9 +1,10 @@
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 import static java.lang.String.join;
 
@@ -28,6 +29,36 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("short: " + pms_Short);
         System.out.println("int:   " + pmi_Int);
         System.out.println("long:  " + pml_Long);
+        System.out.println("//Типы данных: ////Целые - Варианты записи - Двоичный -----------------------------------");
+        pmy_Bite = 0b01111111;                                                                 // Бит: 8,  Байт: 1.
+        pms_Short = 0b01111111_11111111;                                                       // Бит: 16, Байт: 2.
+        pmi_Int = 0b01111111_11111111_11111111_11111111;                                       // Бит: 32, Байт: 4.
+        pml_Long = 0b01111111_11111111_11111111_11111111_11111111_11111111_11111111_11111111L; // Бит: 64, Байт: 8.
+        System.out.println("0b - а дальше в двоичном виде");
+        System.out.println("pmy_Bite  = 0b01111111                            = " + pmy_Bite);
+        System.out.println("pms_Short = 0b01111111_11111111                   = " + pms_Short);
+        System.out.println("pmi_Int   = 0b01111111_11111111_11111111_11111111 = " + pmi_Int);
+        System.out.println("pml_Long  = 0b01111111_11111111_11...11_11111111L = " + pml_Long);
+        System.out.println("//Типы данных: ////Целые - Варианты записи - Восьмеричный ----------------------------");
+        pmy_Bite = 01_77;                             // Бит: 8,  Байт: 1.
+        pms_Short = 07_77_77;                         // Бит: 16, Байт: 2.
+        pmi_Int = 01_77_77_77_77_77;                  // Бит: 32, Байт: 4.
+        pml_Long = 07_77_77_77_77_77_77_77_77_77_77L; // Бит: 64, Байт: 8.
+        System.out.println("0x - а дальше в восьмеричном виде");
+        System.out.println("pmy_Bite  = 01_77                             = " + pmy_Bite);
+        System.out.println("pms_Short = 07_77_77                          = " + pms_Short);
+        System.out.println("pmi_Int   = 01_77_77_77_77_77                 = " + pmi_Int);
+        System.out.println("pml_Long  = 07_77_77_77_77_77_77_77_77_77_77L = " + pml_Long);
+        System.out.println("//Типы данных: ////Целые - Варианты записи - Шеснацетиричный ----------------------------");
+        pmy_Bite = 0x7F;                              // Бит: 8,  Байт: 1.
+        pms_Short = 0x7F_FF;                          // Бит: 16, Байт: 2.
+        pmi_Int = 0x7F_FF_FF_FF;                      // Бит: 32, Байт: 4.
+        pml_Long = 0x7F_FF_FF_FF_FF_FF_FF_FFL;        // Бит: 64, Байт: 8.
+        System.out.println("0x - а дальше в шеснацетиричном виде");
+        System.out.println("pmy_Bite  = 0x7F                       = " + pmy_Bite);
+        System.out.println("pms_Short = 0x7F_FF                    = " + pms_Short);
+        System.out.println("pmi_Int   = 0x7F_FF                    = " + pmi_Int);
+        System.out.println("pml_Long  = 0x7F_FF_FF_FF_FF_FF_FF_FFL = " + pml_Long);
         System.out.println("-----------------------------------------------------------------------------------------");
         //Можно задевать несколько переменных одного типа в одной строке.
         int pmi_Int1 = 1, pmi_Int2 = 2, pmi_Int3 = 1;
@@ -39,6 +70,16 @@ public class Main {// Классы могут быть public или Default, н
         double pmd_Double = 1.0;  // Бит: 64, Байт: 8 // На конце можно писать D.
         System.out.println("float:   " + pmf_Float / 3);
         System.out.println("double:  " + pmd_Double / 3);
+        System.out.println("//Типы данных: ////Вещественные - Варианты записи - Шеснацетиричный----------------------");
+        pmd_Double = 0x1.0p-3;
+        System.out.println("pmd_Double = 0x1.0p-3 =  (1.0)(p-3) =  1/2^3 = " + pmd_Double);
+        pmd_Double = 0x2.0p-3;
+        System.out.println("pmd_Double = 0x2.0p-3 =  (2.0)(p-3) =  2/2^3 = " + pmd_Double);
+        pmd_Double = 0x3.0p-3;
+        System.out.println("pmd_Double = 0x3.0p-3 =  (3.0)(p-3) =  3/2^3 = " + pmd_Double);
+        pmd_Double = 0xF.0p-3;
+        System.out.println("pmd_Double = 0xF.0p-3 = (15.0)(p-3) = 15/2^3 = " + pmd_Double);
+//        Thread.sleep(100000);
         System.out.println("//Типы данных: //Булевы------------------------------------------------------------------");
         boolean pmb_Boolean = true; // true или false.
         System.out.println("boolean: " + pmb_Boolean);
@@ -343,10 +384,10 @@ public class Main {// Классы могут быть public или Default, н
 
         System.out.println();
 
-        for (;;){ // В for параметры могут быть пустыми.
+        for (; ; ) { // В for параметры могут быть пустыми.
             System.out.println("pmy_Bite = " + pmy_Bite);
             pmy_Bite--;
-            if (pmy_Bite<1) break;
+            if (pmy_Bite < 1) break;
         }
 
         System.out.println();
@@ -471,6 +512,7 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("poOb_object1.equals(poOb_object2) = " + poOb_object1.equals(poOb_object2));
         System.out.println("poOb_object1.hashCode() = " + poOb_object1.hashCode());
         System.out.println("poOb_object1.toString() = " + poOb_object1.toString());
+
         System.out.println("poOb_object1.getClass() = " + poOb_object1.getClass());
         System.out.println("#########################################################################################");
         System.out.println("//Random - Методы для всех классов-------------------------------------------------------");
@@ -481,21 +523,40 @@ public class Main {// Классы могут быть public или Default, н
         }
         System.out.println("#########################################################################################");
         System.out.println("//Files ---------------------------------------------------------------------------------");
+        String fs = File.separator;
         File dir = new File("resources");
-        System.out.println("dir.exists()           = " + dir.exists());
-        System.out.println("dir.mkdir()            = " + dir.mkdir());
-        System.out.println("dir.isDirectory()      = " + dir.isDirectory());
-        System.out.println("dir.isFile()           = " + dir.isFile());
-        System.out.println("dir.getParent()        = " + dir.getParent());
-        System.out.println("dir.getAbsolutePath()  = " + dir.getAbsolutePath());
-        File file = new File(dir.getName() + "\\testFile.txt");
-        System.out.println("file.exists()          = " + file.exists());
-        System.out.println("file.createNewFile()   = " + file.createNewFile());
-        System.out.println("file.isDirectory()     = " + file.isDirectory());
-        System.out.println("file.isFile()          = " + file.isFile());
-        System.out.println("file.getParent()       = " + file.getParent());
-        System.out.println("file.getParent()       = " + file.getParent());
-        System.out.println("file.getAbsolutePath() = " + file.getAbsolutePath());
+        System.out.println("dir.exists()            = " + dir.exists());
+        System.out.println("dir.mkdir()             = " + dir.mkdir());
+        System.out.println("dir.isDirectory()       = " + dir.isDirectory());
+        System.out.println("dir.isFile()            = " + dir.isFile());
+        System.out.println("dir.getParent()         = " + dir.getParent());
+        System.out.println("dir.getAbsolutePath()   = " + dir.getAbsolutePath());
+        File file1 = new File(dir.getName() + fs + "File1.txt");
+        File file2 = Path.of(dir.getName(), "File2.txt").toFile(); // Более современный вариант (не требует сепаратора).
+        System.out.println("file1.exists()          = " + file1.exists());
+        System.out.println("file2.createNewFile()   = " + file2.createNewFile());
+        System.out.println("file1.createNewFile()   = " + file1.createNewFile());
+        System.out.println("file1.isDirectory()     = " + file1.isDirectory());
+        System.out.println("file1.isFile()          = " + file1.isFile());
+        System.out.println("file1.getParent()       = " + file1.getParent());
+        System.out.println("file1.getParent()       = " + file1.getParent());
+        System.out.println("file1.getAbsolutePath() = " + file1.getAbsolutePath());
+        System.out.println("//FileInputStream -----------------------------------------------------------------------");
+        try (FileInputStream fis = new FileInputStream(file1)) {
+            byte[] bytes = fis.readAllBytes();
+            String string = new String(bytes);
+            System.out.println("string:\n" + string);
+        }
+        System.out.println("//BufferedReader & FileReader------------------------------------------------------------");
+        try (BufferedReader br = new BufferedReader(new FileReader(file1))) {
+            String collect = br.lines()
+                    .collect(Collectors.joining("\n"));
+            System.out.println("collect:\n" + collect);
+        }
+        System.out.println("//FileOutputStream ----------------------------------------------------------------------");
+        try (FileOutputStream fos = new FileOutputStream(file2, true)) { // true - добавлять, false - перезаписывать
+            fos.write(("TestLine" + System.lineSeparator()).getBytes());        // System.lineSeparator() - перевод на новую строку в разных ОС.
+        }
         System.out.println("#########################################################################################");
     }
 
