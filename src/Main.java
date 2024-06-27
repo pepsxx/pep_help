@@ -1,10 +1,16 @@
 import java.io.*;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.lang.String.join;
 
@@ -39,6 +45,19 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("pms_Short = 0b01111111_11111111                   = " + pms_Short);
         System.out.println("pmi_Int   = 0b01111111_11111111_11111111_11111111 = " + pmi_Int);
         System.out.println("pml_Long  = 0b01111111_11111111_11...11_11111111L = " + pml_Long);
+        System.out.println("//Типы данных: ////Целые - Визуализация -------------------------------------------------");
+        byte negativeMin = (byte) 0b1000_0000;
+        byte negativeMed = (byte) 0b1100_0000;
+        byte negativeMax = (byte) 0b1111_1111;
+        System.out.println("negativeMin = 1000_0000 = " + negativeMin);
+        System.out.println("negativeMed = 1100_0000 = " + negativeMed);
+        System.out.println("negativeMax = 1111_1111 = " + negativeMax);
+        byte positiveMin = (byte) 0b0000_0000;
+        byte positiveMed = (byte) 0b0100_0000;
+        byte positiveMax = (byte) 0b0111_1111;
+        System.out.println("negativeMin = 0000_0000 =  " + positiveMin);
+        System.out.println("negativeMed = 0100_0000 =  " + positiveMed);
+        System.out.println("negativeMax = 0111_1111 =  " + positiveMax);
         System.out.println("//Типы данных: ////Целые - Варианты записи - Восьмеричный ----------------------------");
         pmy_Bite = 01_77;                             // Бит: 8,  Байт: 1.
         pms_Short = 07_77_77;                         // Бит: 16, Байт: 2.
@@ -254,6 +273,46 @@ public class Main {// Классы могут быть public или Default, н
         else if (pms_Short == 360) System.out.printf("Угол равен: %d Полный%n", pms_Short);
         else System.out.printf("Угол равен: %d Не корректный%n", pms_Short);
 
+        System.out.println("//Поразрядные операции - [<< >>]---------------------------------------------------------");
+        System.out.println(">>  - операция    сохраняет старший бит, для сохранения отрицательного числа");
+        System.out.println(">>> - операция не сохраняет старший бит, числа становятся положительными");
+        int i0 = 0b0;
+        int i1 = 0b1;
+        int i2 = 0b11;
+        int i3 = 0b111;
+        int i4 = 0b1111;
+        int i5 = 0b11110;
+        int i6 = 0b111100;
+        int i7 = 0b1111000;
+        int i8 = 0b11110000;
+        System.out.println("i0 = 00000000 = " + i0);
+        System.out.println("i1 = 00000001 = " + i1);
+        System.out.println("i2 = 00000011 = " + i2);
+        System.out.println("i3 = 00000111 = " + i3);
+        System.out.println("i4 = 00001111 = " + i4);
+        System.out.println("i5 = 00011110 = " + i5);
+        System.out.println("i6 = 00111100 = " + i6);
+        System.out.println("i7 = 01111000 = " + i7);
+        System.out.println("i8 = 11110000 = " + i8);
+        int ii;
+        ii = i4 >> 4;
+        System.out.println("ii =  i4 >> 4 = " + ii);
+        ii = i4 >> 3;
+        System.out.println("ii =  i4 >> 3 = " + ii);
+        ii = i4 >> 2;
+        System.out.println("ii =  i4 >> 2 = " + ii);
+        ii = i4 >> 1;
+        System.out.println("ii =  i4 >> 1 = " + ii);
+        ii = i4 << 1;
+        System.out.println("ii =  i4 << 1 = " + ii);
+        ii = i4 << 2;
+        System.out.println("ii =  i4 << 2 = " + ii);
+        ii = i4 << 3;
+        System.out.println("ii =  i4 << 3 = " + ii);
+        ii = i4 << 4;
+        System.out.println("ii =  i4 << 4 = " + ii);
+//        Thread.sleep(10000);
+
         System.out.println("-----------------------------------------------------------------------------------------");
         System.out.println("pmSt_String1 = " + pmSt_String1);
         System.out.println("pmSt_String2 = " + pmSt_String2);
@@ -320,7 +379,7 @@ public class Main {// Классы могут быть public или Default, н
         }
 
         System.out.println("for c двумя инкрементами");
-        int ii = 10;
+        ii = 10;
         for (int i = 0; i < 5; i++, ii++) {
             System.out.println("i = " + i + "    ii = " + ii);
         }
@@ -522,7 +581,7 @@ public class Main {// Классы могут быть public или Default, н
             System.out.println(" ThreadLocalRandom.current().nextInt(10) = " + ThreadLocalRandom.current().nextInt(60, 90));  // Новый вариант.
         }
         System.out.println("#########################################################################################");
-        System.out.println("//Files ---------------------------------------------------------------------------------");
+        System.out.println("//File-----------------------------------------------------------------------------------");
         String fs = File.separator;
         File dir = new File("resources");
         System.out.println("dir.exists()            = " + dir.exists());
@@ -539,9 +598,8 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("file1.isDirectory()     = " + file1.isDirectory());
         System.out.println("file1.isFile()          = " + file1.isFile());
         System.out.println("file1.getParent()       = " + file1.getParent());
-        System.out.println("file1.getParent()       = " + file1.getParent());
         System.out.println("file1.getAbsolutePath() = " + file1.getAbsolutePath());
-        System.out.println("//FileInputStream -----------------------------------------------------------------------");
+        System.out.println("//FileInputStream------------------------------------------------------------------------");
         try (FileInputStream fis = new FileInputStream(file1)) {
             byte[] bytes = fis.readAllBytes();
             String string = new String(bytes);
@@ -553,10 +611,59 @@ public class Main {// Классы могут быть public или Default, н
                     .collect(Collectors.joining("\n"));
             System.out.println("collect:\n" + collect);
         }
-        System.out.println("//FileOutputStream ----------------------------------------------------------------------");
+        System.out.println("//FileOutputStream-----------------------------------------------------------------------");
         try (FileOutputStream fos = new FileOutputStream(file2, true)) { // true - добавлять, false - перезаписывать
-            fos.write(("TestLine" + System.lineSeparator()).getBytes());        // System.lineSeparator() - перевод на новую строку в разных ОС.
+            fos.write(("TestLine1" + System.lineSeparator()).getBytes());       // System.lineSeparator() - перевод на новую строку в разных ОС.
         }
+        System.out.println("//BufferedWriter & FileWriter------------------------------------------------------------");
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file2, true))) {
+            bw.append("TestLine2");
+            bw.newLine(); // Перевод на новую строку в разных ОС.
+        }
+        System.out.println("//Files----------------------------------------------------------------------------------");
+        System.out.println("//Files - Input--------------------------------------------------------------------------");
+        Path path1 = Path.of(dir.getName(), "File1.txt");
+        try (Stream<String> lines = Files.lines(path1)) {
+            lines.forEach(System.out::println);
+        }
+        System.out.println("//Files - Output-------------------------------------------------------------------------");
+        Path path2 = Path.of(dir.getName(), "File2.txt");
+        Files.writeString(path2, "TestLine3\n", StandardOpenOption.APPEND);
+        System.out.println("//ZonedDateTime--------------------------------------------------------------------------");
+        ZonedDateTime zonedDateTime = ZonedDateTime.now();
+        System.out.println("zonedDateTime.toEpochSecond()              = " + zonedDateTime.toEpochSecond());
+        System.out.println("zonedDateTime.toInstant().toEpochMilli()   = " + zonedDateTime.toInstant().toEpochMilli());
+        System.out.println("zonedDateTime.truncatedTo(ChronoUnit.DAYS) = " + zonedDateTime.truncatedTo(ChronoUnit.DAYS));
+        System.out.println("LocalDateTime.now()               = " + LocalDateTime.now());
+        System.out.println("LocalDateTime.now()               = " + LocalDateTime.now(ZoneOffset.UTC));
+        System.out.println("LocalDateTime.now().toLocalDate() = " + LocalDateTime.now().toLocalDate());
+        System.out.println("LocalDateTime.now().toLocalTime() = " + LocalDateTime.now().toLocalTime());
+        System.out.println("LocalDate.now()                   = " + LocalDate.now());
+        System.out.println("LocalDate.now(ZoneOffset.UTC)     = " + LocalDate.now(ZoneOffset.UTC));
+        System.out.println("LocalTime.now()                   = " + LocalTime.now());
+        System.out.println("LocalTime.now(ZoneOffset.UTC)     = " + LocalTime.now(ZoneOffset.UTC));
+        System.out.println("zonedDateTime                 = " + zonedDateTime);
+        System.out.println("zonedDateTime.plusSeconds(1)  = " + zonedDateTime.plusSeconds(1));
+        System.out.println("zonedDateTime.plusMinutes(1)  = " + zonedDateTime.plusMinutes(1));
+        System.out.println("zonedDateTime.plusHours(1)    = " + zonedDateTime.plusHours(1));
+        System.out.println("zonedDateTime.plusDays(1)     = " + zonedDateTime.plusDays(1));
+        System.out.println("zonedDateTime.plusWeeks(1)    = " + zonedDateTime.plusWeeks(1));
+        System.out.println("zonedDateTime.plusMonths(1)   = " + zonedDateTime.plusMonths(1));
+        System.out.println("zonedDateTime.plusYears(1)    = " + zonedDateTime.plusYears(1));
+        System.out.println("zonedDateTime.getSecond()     = " + zonedDateTime.getSecond());
+        System.out.println("zonedDateTime.getMinute()     = " + zonedDateTime.getMinute());
+        System.out.println("zonedDateTime.getHour()       = " + zonedDateTime.getHour());
+        System.out.println("zonedDateTime.getDayOfMonth() = " + zonedDateTime.getDayOfMonth());
+        System.out.println("zonedDateTime.getDayOfWeek()  = " + zonedDateTime.getDayOfWeek());
+        System.out.println("zonedDateTime.getDayOfYear()  = " + zonedDateTime.getDayOfYear());
+        System.out.println("zonedDateTime.getMonth()      = " + zonedDateTime.getMonth());
+        System.out.println("zonedDateTime.getMonthValue() = " + zonedDateTime.getMonthValue());
+        System.out.println("zonedDateTime.getYear()       = " + zonedDateTime.getYear());
+        System.out.println("zonedDateTime.getZone()       = " + zonedDateTime.getZone());
+        System.out.println("zonedDateTime.getOffset()     = " + zonedDateTime.getOffset());
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        System.out.println("   DateTimeFormatter dateTimeFormatter  = DateTimeFormatter.ofPattern(\"dd.MM.yyyy\")");
+        System.out.println("zonedDateTime.format(dateTimeFormatter) = " + zonedDateTime.format(dateTimeFormatter));
         System.out.println("#########################################################################################");
     }
 
