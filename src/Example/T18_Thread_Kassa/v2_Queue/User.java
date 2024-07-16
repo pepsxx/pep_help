@@ -1,4 +1,4 @@
-package Example.T18_Thread_Kassa.v2;
+package Example.T18_Thread_Kassa.v2_Queue;
 
 import java.util.Queue;
 import java.util.concurrent.ThreadLocalRandom;

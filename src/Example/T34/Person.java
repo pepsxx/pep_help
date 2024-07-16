@@ -1,4 +1,4 @@
-package Example.T24;
+package Example.T34;
 
 import java.util.stream.Stream;
 
