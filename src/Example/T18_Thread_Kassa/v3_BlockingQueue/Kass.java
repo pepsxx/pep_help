@@ -1,4 +1,4 @@
-package Example.T18_Thread_Kassa.v2;
+package Example.T18_Thread_Kassa.v3_BlockingQueue;
 
 public class Kass {
     private final int id;
