@@ -204,6 +204,7 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("                     Спец символ \"\\t\" для отступа->\t\t<-Продолжение после отступа.");
         System.out.printf("System.out.printf  - Нет перехода на новую строку. но удобно использовать с переменными:\n");
         System.out.printf("%%d: %d, %%f: %f, %%b: %b, %%B: %B, %%c: %c, %%C: %C, %%s: %s, %%S: %S, %%h: %h, %%n: Переход на новую строку %n", pmi_Int, pmf_Float, pmb_Boolean, pmb_Boolean, pmc_Char, pmc_Char, pmSt_String1, pmSt_String1, pmSt_String2);
+//        Thread.sleep(10_000);
         System.out.println("""
                 **************************************
                 * Интересный вид записи              *
@@ -233,6 +234,7 @@ public class Main {// Классы могут быть public или Default, н
         System.out.printf("|%-5d|%-5d|%-5d|%n", pmi_Int1, 100, pmi_Int2);
         System.out.printf("|%5d|%5d|%5d|%n", 123, 123456, 123456789); //Если не влезает в 5 символов, то расширяется до нужного количества.
         System.out.printf("|%.5f|%.15f|%.25f|%n", Math.PI, Math.PI, Math.PI);
+        Thread.sleep(10_000);
         System.out.println("#########################################################################################");
         System.out.println("//Операторы сравнения - [> >= < <= != ==] и Условный оператор if--------------------------");
         pmy_Bite = 5;
@@ -691,8 +693,9 @@ public class Main {// Классы могут быть public или Default, н
 
     private static void pf_pepNote() {
         // Заметки - Начало.
-        // V2.4.0.6.0.3.
+        // V2.4.0.7.1.5.
 
+        // Заметки - Конец.
         System.out.println("""
                 /////////////////////////////////////////////////////////////////////////////////////////
                 // Ctrl + D             - Создать копию выделенной(х) строки(ок) кода снизу.
@@ -783,8 +786,36 @@ public class Main {// Классы могут быть public или Default, н
                 // pmМSt_Xxxx - Масив - Одномерный  -> String.
                 // pmМMSt_Xxx - Масив - Двумерный   -> String.
                 /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                // entry    - Запись
+                // entity   - Сущность
+                // isEmpty  - Пусто
+                // instsnce - Экземпляр
+                // invoke   - Вызывать
+                // forEach  - Для Каждого
+                // field    - Поле
+                // peek     - Заглянуть
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                //         Стандартные   - Потокобезопасные
+                // List
+                //       - ArrayList     - CopyOnWriteArrayList
+                //       - LinkedList    -
+                //
+                // Queue - Queue         - BlockingQueue - ConcurrentLinkedQueue - ArrayBlockingQueue
+                // Deque - Deque         - BlockingDeque - ConcurrentLinkedDeque
+                //
+                // Set                   
+                // 	     - HashSet       - CopyOnWriteArraySet
+                // 	     - LinkedHashSet - -
+                //       - TreeSet       - ConcurrentSkipListSet
+                //	 
+                // Map                  
+                //       - HashMap       - ConcurrentHashMap 
+                //       - LinkedHashMap - -
+                //       - TreeMap       - ConcurrentSkipListMap
+                /////////////////////////////////////////////////////////////////////////////////////////
                 """);
-        // Заметки - Конец.
     }
 }
 
