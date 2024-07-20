@@ -19,7 +19,7 @@ public class Main {
             String pass = properties.getProperty("pass");
             String url = properties.getProperty("url");
             try (Connection connection = DriverManager.getConnection(url, user, pass)) {
-                System.out.println("connection.getTransactionIsolation() = " + connection.getTransactionIsolation());
+                System.out.println("connection.getSchema() = " + connection.getSchema());
             }
         }
     }

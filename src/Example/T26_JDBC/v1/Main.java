@@ -13,7 +13,7 @@ public class Main {
         String pass = "postgres";
         String url = "jdbc:postgresql://localhost:5432/postgres";
         try (Connection connection = DriverManager.getConnection(url, user, pass)) {
-            System.out.println("connection.getTransactionIsolation() = " + connection.getTransactionIsolation());
+            System.out.println("connection.getSchema() = " + connection.getSchema());
         }
     }
 }

@@ -12,7 +12,7 @@ public class Main {
         // Project Settings -> Modules -> Dependencies -> +.
 
         try (Connection connection = ConnectionUtil.getConnection()) {
-            System.out.println("connection.getTransactionIsolation() = " + connection.getTransactionIsolation());
+            System.out.println("connection.getSchema() = " + connection.getSchema());
         }
     }
 }
