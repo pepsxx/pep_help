@@ -4,7 +4,8 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class Main {
+public class
+Main {
     public static void main(String[] args) throws IllegalAccessException {
 
         Car car1 = new Car("Toyota", "Corolla");
