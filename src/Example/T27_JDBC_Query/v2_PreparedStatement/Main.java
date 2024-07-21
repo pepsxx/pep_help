@@ -28,8 +28,7 @@ public class Main {
         try (Connection connection = ConnectionUtil.getConnection()) {
             System.out.println("connection.getSchema() = " + connection.getSchema());
             System.out.println("connection.getCatalog() = " + connection.getCatalog());
-            Statement statement = connection.createStatement();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT 'TEST'");
+            PreparedStatement preparedStatement;
 
             preparedStatement = connection.prepareStatement(sqlInsert);
             preparedStatement.setString(1, "Mike" + random);

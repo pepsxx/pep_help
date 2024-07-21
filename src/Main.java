@@ -1,4 +1,5 @@
 import java.io.*;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -693,7 +694,7 @@ public class Main {// Классы могут быть public или Default, н
 
     private static void pf_pepNote() {
         // Заметки - Начало.
-        // V2.4.0.7.1.5.
+        // V2.4.0.7.2.1.
 
         // Заметки - Конец.
         System.out.println("""
@@ -795,6 +796,19 @@ public class Main {// Классы могут быть public или Default, н
                 // forEach  - Для Каждого
                 // field    - Поле
                 // peek     - Заглянуть
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                // CRUD - Create Read Update Delete 
+                // DAO  - Data Access Object
+                // DTO  - Data Transfer Object
+                // ORM  - Object Relational Mapping (Hibernate, JOOQ, MyBatis)
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                // SQL     - JAVA
+                // bigint  - Long
+                // numeric - Double
+                // numeric - BigDecimal (для денег)
+                // varchar - String
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
                 //         Стандартные   - Потокобезопасные
