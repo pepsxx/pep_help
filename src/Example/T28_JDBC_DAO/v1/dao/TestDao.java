@@ -1,8 +1,8 @@
-package Example.T28_JDBC_DAO.dao;
+package Example.T28_JDBC_DAO.v1.dao;
 
-import Example.T28_JDBC_DAO.ConnectionUtil;
-import Example.T28_JDBC_DAO.entity.TestEntity;
-import Example.T28_JDBC_DAO.exception.DaoException;
+import Example.T28_JDBC_DAO.v1.util.ConnectionUtil;
+import Example.T28_JDBC_DAO.v1.entity.TestEntity;
+import Example.T28_JDBC_DAO.v1.exception.DaoException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

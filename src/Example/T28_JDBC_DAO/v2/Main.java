@@ -1,7 +1,7 @@
-package Example.T28_JDBC_DAO;
+package Example.T28_JDBC_DAO.v2;
 
-import Example.T28_JDBC_DAO.dao.TestDao;
-import Example.T28_JDBC_DAO.entity.TestEntity;
+import Example.T28_JDBC_DAO.v2.dao.TestDao;
+import Example.T28_JDBC_DAO.v2.entity.TestEntity;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -13,7 +13,10 @@ public class Main {
         TestDao.getInstance().creat(testEntity);
         TestDao.getInstance().update(testEntity, "Leo");
         TestDao.getInstance().delete(testEntity, "Leo");
+        System.out.println("--------------------------------------------------");
         TestDao.getInstance().read();
+        System.out.println("--------------------------------------------------");
+        TestDao.getInstance().read(testEntity);
     }
 }
 

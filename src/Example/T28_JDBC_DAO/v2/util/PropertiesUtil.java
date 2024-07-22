@@ -1,4 +1,4 @@
-package Example.T28_JDBC_DAO;
+package Example.T28_JDBC_DAO.v2.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;

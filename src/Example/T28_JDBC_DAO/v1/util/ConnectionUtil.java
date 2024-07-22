@@ -1,4 +1,4 @@
-package Example.T28_JDBC_DAO;
+package Example.T28_JDBC_DAO.v1.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

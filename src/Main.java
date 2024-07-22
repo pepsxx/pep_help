@@ -788,6 +788,19 @@ public class Main {// Классы могут быть public или Default, н
                 // pmМMSt_Xxx - Масив - Двумерный   -> String.
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
+                // sysdm.cpl         -> Дополнительно -> Переменные среды -> Создать
+                // IntelliJ IDEA     -> C:\\Program Files\\JetBrains\\IntelliJIdea2023.3
+                //
+                // sysdm.cpl         -> Дополнительно -> Переменные среды -> Path -> Изменить
+                // java path example -> C:\\Program Files\\Java\\jdk-17\\bin
+                // mvn path example  -> %IntelliJ IDEA%\\plugins\\maven\\lib\\maven3\\bin
+                //
+                // cmd:
+                // java  -version    -> java version "17.0.7" 2023-04-18 LTS...
+                // javac -version    -> javac 17.0.7
+                // mvn   -version    -> Apache Maven 3.9.5 (57804ffe001d7215b5e7bcb531cf83df38f93546)...
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
                 // entry    - Запись
                 // entity   - Сущность
                 // isEmpty  - Пусто
@@ -799,9 +812,11 @@ public class Main {// Классы могут быть public или Default, н
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
                 // CRUD - Create Read Update Delete 
-                // DAO  - Data Access Object
-                // DTO  - Data Transfer Object
+                // DAO  - Data Access Object (in Hibernate)
+                // DSL  - Domain Specific Language (in Grable 2007)
+                // DTO  - Data Transfer Object (in Hibernate)
                 // ORM  - Object Relational Mapping (Hibernate, JOOQ, MyBatis)
+                // POM  - Project Object Model (in Maven 2002)
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
                 // SQL     - JAVA

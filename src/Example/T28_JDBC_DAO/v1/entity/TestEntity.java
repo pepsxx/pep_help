@@ -1,4 +1,4 @@
-package Example.T28_JDBC_DAO.entity;
+package Example.T28_JDBC_DAO.v1.entity;
 
 public class TestEntity {
     private Integer id;
