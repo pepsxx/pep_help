@@ -694,7 +694,7 @@ public class Main {// Классы могут быть public или Default, н
 
     private static void pf_pepNote() {
         // Заметки - Начало.
-        // V2.4.0.7.2.1.
+        // V2.4.0.7.2.3.
 
         // Заметки - Конец.
         System.out.println("""
@@ -801,14 +801,15 @@ public class Main {// Классы могут быть public или Default, н
                 // mvn   -version    -> Apache Maven 3.9.5 (57804ffe001d7215b5e7bcb531cf83df38f93546)...
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
-                // entry    - Запись
-                // entity   - Сущность
-                // isEmpty  - Пусто
-                // instsnce - Экземпляр
-                // invoke   - Вызывать
-                // forEach  - Для Каждого
-                // field    - Поле
-                // peek     - Заглянуть
+                // entry      - Запись
+                // entity     - Сущность
+                // exsecution - Исполнение
+                // isEmpty    - Пусто
+                // instance   - Экземпляр
+                // invoke     - Вызывать
+                // forEach    - Для Каждого
+                // field      - Поле
+                // peek       - Заглянуть
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
                 // CRUD - Create Read Update Delete 
