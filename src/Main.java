@@ -694,7 +694,7 @@ public class Main {// Классы могут быть public или Default, н
 
     private static void pf_pepNote() {
         // Заметки - Начало.
-        // V2.4.0.7.2.3.
+        // V2.4.0.7.3.1.
 
         // Заметки - Конец.
         System.out.println("""
@@ -788,17 +788,19 @@ public class Main {// Классы могут быть public или Default, н
                 // pmМMSt_Xxx - Масив - Двумерный   -> String.
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
-                // sysdm.cpl         -> Дополнительно -> Переменные среды -> Создать
-                // IntelliJ IDEA     -> C:\\Program Files\\JetBrains\\IntelliJIdea2023.3
+                // sysdm.cpl           -> Дополнительно -> Переменные среды -> Создать
+                // IntelliJ IDEA       -> C:\\Program Files\\JetBrains\\IntelliJIdea2023.3
                 //
-                // sysdm.cpl         -> Дополнительно -> Переменные среды -> Path -> Изменить
-                // java path example -> C:\\Program Files\\Java\\jdk-17\\bin
-                // mvn path example  -> %IntelliJ IDEA%\\plugins\\maven\\lib\\maven3\\bin
+                // sysdm.cpl           -> Дополнительно -> Переменные среды -> Path -> Изменить
+                // java path example   -> C:\\Program Files\\Java\\jdk-17\\bin
+                // mvn path example    -> %IntelliJ IDEA%\\plugins\\maven\\lib\\maven3\\bin
+                // gradle path example -> C:\\Users\\pep_s\\.gradle\\wrapper\\dists\\gradle-8.4-bin\\1w5dpkrfk8irigvoxmyhowfim\\gradle-8.4\\bin
                 //
                 // cmd:
-                // java  -version    -> java version "17.0.7" 2023-04-18 LTS...
-                // javac -version    -> javac 17.0.7
-                // mvn   -version    -> Apache Maven 3.9.5 (57804ffe001d7215b5e7bcb531cf83df38f93546)...
+                // java   -version     -> java version "17.0.7" 2023-04-18 LTS...
+                // javac  -version     -> javac 17.0.7
+                // mvn    -version     -> Apache Maven 3.9.5 (57804ffe001d7215b5e7bcb531cf83df38f93546)...
+                // gradle -version     -> Welcome to Gradle 8.4!...
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
                 // deploy     - Развертывать
@@ -813,16 +815,26 @@ public class Main {// Классы могут быть public или Default, н
                 // peek       - Заглянуть
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
-                // CRUD - Create Read Update Delete 
-                // DAO  - Data Access Object (in Hibernate)
-                // DSL  - Domain Specific Language (in Grable 2007)
-                // DTO  - Data Transfer Object (in Hibernate)
-                // ORM  - Object Relational Mapping (Hibernate, JOOQ, MyBatis)
-                // POM  - Project Object Model (in Maven 2002)
+                // CGLIB - Code Generation Library 
+                // CRUD  - Create Read Update Delete 
+                // DAO   - Data Access Object              (in Hibernate)
+                // DSL   - Domain Specific Language        (in Groovy, Grable 2007)
+                // DTO   - Data Transfer Object            (in Hibernate)
+                // ELK   - Elasticsearch, Logstash, Kibana (Logging)
+                // HQL   - Hibernate Query Language        (Hibernate)
+                // JPA   - Java Persistыence API            (Интерфейс для ORM)
+                // ORM   - Object Relational Mapping       (Hibernate, JOOQ, MyBatis)
+                // MOP   - Meta Object Protocol            (Groovy)
+                // ORM   - Object Relational Mapping       (Hibernate, JOOQ, MyBatis, Eclipse Link, Apache Cayenne)
+                // POM   - Project Object Model            (in Maven 2002)
+                // SQL   - Structured Query Language       (in Реляционные базы данных)
+                // TDD   - Test Driven Development         (in JUnit)
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
                 // SQL     - JAVA
                 // bigint  - Long
+                // date    - LocalData
+                // integer - Integer
                 // numeric - Double
                 // numeric - BigDecimal (для денег)
                 // varchar - String
