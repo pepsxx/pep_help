@@ -839,6 +839,8 @@ public class Main {// Классы могут быть public или Default, н
                 // DTO   - Data Transfer Object            (in Hibernate)
                 // ELK   - Elasticsearch, Logstash, Kibana (Logging)
                 // HQL   - Hibernate Query Language        (Hibernate)
+                // HTTP  - HyperText Transfer Protocol
+                // HTML  - HyperText Markup Language
                 // IoC   - Inversion of Control            (in Spring)
                 // ISO   - International Organization for Standardization
                 // JPA   - Java Persistence API            (Спецификация для ORM)
@@ -848,6 +850,7 @@ public class Main {// Классы могут быть public или Default, н
                 // POM   - Project Object Model            (in Maven 2002)
                 // SQL   - Structured Query Language       (in Реляционные базы данных)
                 // TDD   - Test Driven Development         (in JUnit)
+                // URL   - Uniform Resource Locator
                 // WWW   - World Wide Web
                 //
                 // Network
