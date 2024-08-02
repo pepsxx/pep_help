@@ -694,7 +694,7 @@ public class Main {// Классы могут быть public или Default, н
 
     private static void pf_pepNote() {
         // Заметки - Начало.
-        // V2.4.0.7.3.1.
+        // V2.4.0.8.0.2.
 
         // Заметки - Конец.
         System.out.println("""
@@ -705,13 +705,13 @@ public class Main {// Классы могут быть public или Default, н
                 // Ctrl + H             - Показать иерархию Класса, Интерфейса,...
                 // Ctrl + Shift + /     - Закомментировать выделанный кусок кода.
                 // Ctrl + Shift + Вверх - Переместить блок (метод) вверх над другим блоком (методом).
-                // Ctrl + Alt - V       - Создать переменную из значения.
+                // Ctrl + Alt - V       + Создать переменную из значения.
                 // Ctrl + Alt - C       - Создать константу.
-                // Ctrl + Alt - N       - Прописать значение вместо переменной.
+                // Ctrl + Alt - N       + Прописать значение вместо переменной.
                 // Ctrl + Alt - L       - Выровнять код по стилю.
                 // Ctrl + Alt - T       - Добавить if, while, try, synchronized.
-                // Ctrl + Alt - P       - Переместить переменную в параметры метода.   
-                // Ctrl + Alt - M       - Убрать блок в метод.   
+                // Ctrl + Alt - P       + Переместить переменную в параметры метода.   
+                // Ctrl + Alt - M       + Убрать блок в метод.   
                 // Ctrl + Alt - F       - Сделать переменную полем класса.   
                 // Ctrl + Alt - B       - Перейти к месту декларации переменной.   
                 // Ctrl + Alt  + Insert - Меню с выбором создания: Класса и др...
@@ -815,20 +815,53 @@ public class Main {// Классы могут быть public или Default, н
                 // peek       - Заглянуть
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
+                // Spring:
+                //      - Core (IoC/DI) - Хранится все базовые операции для работы фреймворка
+                //              IoC     - Inversion of Control - Инверсия управления
+                //                  DI  - Dependency Injection - Внедрение зависимостей
+                //      - AOP           - Аспектно-ориентированное программирование
+                //      - Data          - Модуль обеспечивает приложениям доступ к данным db
+                //      - Web           - Веб-среда, созданная на основе Servlet API
+                //      - Security      - Среда аутентификации, авторизации и контроля доступа
+                //      - Reactive      - Реактивные системы
+                //      - Integration   - Позволяет облегчить обмен сообщениями в приложениях на основе Spring
+                //      - Boot          - Комплексный фреймворк для создания и запуска приложений
+                //      - Actuator      - Предоставляет несколько готовых конечных точек, которые могут быть полезны для мониторинга приложения
+                //      - Cloud         - Возможность создавать шаблоны в распределённых системах
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                // ACID  - Atomicity Consistency Isolation Durability (in SQL)
                 // CGLIB - Code Generation Library 
                 // CRUD  - Create Read Update Delete 
                 // DAO   - Data Access Object              (in Hibernate)
+                // DI    - Dependency Injection            (in Spring)
                 // DSL   - Domain Specific Language        (in Groovy, Grable 2007)
                 // DTO   - Data Transfer Object            (in Hibernate)
                 // ELK   - Elasticsearch, Logstash, Kibana (Logging)
                 // HQL   - Hibernate Query Language        (Hibernate)
-                // JPA   - Java Persistыence API            (Интерфейс для ORM)
-                // ORM   - Object Relational Mapping       (Hibernate, JOOQ, MyBatis)
+                // IoC   - Inversion of Control            (in Spring)
+                // ISO   - International Organization for Standardization
+                // JPA   - Java Persistence API            (Спецификация для ORM)
+                // JPQL  - Java Persistence Query Language (Спецификация для Запросов)
                 // MOP   - Meta Object Protocol            (Groovy)
                 // ORM   - Object Relational Mapping       (Hibernate, JOOQ, MyBatis, Eclipse Link, Apache Cayenne)
                 // POM   - Project Object Model            (in Maven 2002)
                 // SQL   - Structured Query Language       (in Реляционные базы данных)
                 // TDD   - Test Driven Development         (in JUnit)
+                // WWW   - World Wide Web
+                //
+                // Network
+                // PAN   - Personal     Area Network (Персональная)
+                // LAN   - Local        Area Network (Обычно в рамках здания)
+                // MAN   - Metropolitan Area Network (Обычно в рамках города или региона)
+                // WAN   - Wide         Area Network (Глобальная)
+                // IP    - Internet             Protocol
+                // TCP   - Transmission Control Protocol
+                // UDP   - User Datagram        Protocol
+                // OSI   - Open System Interconnection
+                // TTL   - Time to live
+                // NAT   - Network Address Translation
+                // DNS   - Domain Name System
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
                 // SQL     - JAVA
