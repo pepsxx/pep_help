@@ -1,5 +1,4 @@
 import java.io.*;
-import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -694,7 +693,7 @@ public class Main {// Классы могут быть public или Default, н
 
     private static void pf_pepNote() {
         // Заметки - Начало.
-        // V2.4.0.8.0.2.
+        // V2.4.0.8.1.6.
 
         // Заметки - Конец.
         System.out.println("""
@@ -803,16 +802,73 @@ public class Main {// Классы могут быть public или Default, н
                 // gradle -version     -> Welcome to Gradle 8.4!...
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
+                // Maven:
+                // При deploy
+                // [ERROR] Deployment failed: repository element was not specified in the POM inside distributionManagement element
+                // POM.xml ->
+                                <distributionManagement>
+                                    <repository>
+                                        <id>pep-repository</id>
+                                        <name>Pep Repository</name>
+                                        <url>file:///C:/Users/pep_s/.m2/pep/repository/</url>
+                                    </repository>
+                                </distributionManagement>
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                // Tomcat:
+                // Кодировка в консоли
+                // .\\apache-tomcat-10.1.26\\conf\\jaspic-providers.xml ->
+                //              java.util.logging.ConsoleHandler.encoding = windows-1251
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                // Ports
+                //      0 -  1_023 System or well-known ports
+                //  1_024 - 49_151 User or registered ports
+                // 49_152 - 65_535 Dynamic, private or ephemeral ports
+                // 
+                // 400 80  - Apache Tomcat
+                // 400 54  - Postgres SQL
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                // Docker:
+                //             https://www.docker.com/
+                //             https://hub.docker.com/
+                // PostgreSQL:
+                //             https://www.postgresql.org/
+                //             https://hub.docker.com/_/postgres/
+                //             docker run --name PostgreSQL-40054 -p 40054:5432 -e  POSTGRES_USER=admin -e POSTGRES_PASSWORD=qQ111111 -d postgres
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                // conditions - Условия
                 // deploy     - Развертывать
                 // entry      - Запись
                 // entity     - Сущность
                 // exsecution - Исполнение
                 // isEmpty    - Пусто
                 // instance   - Экземпляр
+                // instanceof - Принадлежит ли объект данному Классу
                 // invoke     - Вызывать
                 // forEach    - Для Каждого
                 // field      - Поле
+                // latency    - Задержка
                 // peek       - Заглянуть
+                // require    - Требовать
+                // scope      - Рамки
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                // MVC Model View Controller
+                // View:
+                //             HTML/JSP
+                //                 |
+                // Controller:     |
+                //         Dispatcher Servlet
+                //             Controller
+                //                 |
+                // Model:          |---DTO
+                //              Service
+                //                 |---Entity 
+                //                DAO
+                //             db <-> Entity
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
                 // Spring:
@@ -830,6 +886,14 @@ public class Main {// Классы могут быть public или Default, н
                 //      - Cloud         - Возможность создавать шаблоны в распределённых системах
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
+                // Spring     - JSR 330
+                // @Autowired - @Inject
+                // @Component - @Named
+                // @Qualifier - @Qualifier, @Named
+                // @Scope     - @Singleton
+                //            - @Scope
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
                 // ACID  - Atomicity Consistency Isolation Durability (in SQL)
                 // CGLIB - Code Generation Library 
                 // CRUD  - Create Read Update Delete 
@@ -837,7 +901,9 @@ public class Main {// Классы могут быть public или Default, н
                 // DI    - Dependency Injection            (in Spring)
                 // DSL   - Domain Specific Language        (in Groovy, Grable 2007)
                 // DTO   - Data Transfer Object            (in Hibernate)
+                // EL    - Expression Language
                 // ELK   - Elasticsearch, Logstash, Kibana (Logging)
+                // JSON  - JavaScript Object Notation
                 // HQL   - Hibernate Query Language        (Hibernate)
                 // HTTP  - HyperText Transfer Protocol
                 // HTML  - HyperText Markup Language
@@ -845,13 +911,20 @@ public class Main {// Классы могут быть public или Default, н
                 // ISO   - International Organization for Standardization
                 // JPA   - Java Persistence API            (Спецификация для ORM)
                 // JPQL  - Java Persistence Query Language (Спецификация для Запросов)
+                // JSP   - Java Server Pages
+                // JSR   - Java Specification Request
+                // JSTL  - Java Standard Template Library
+                // MIME  - Multipurpose Internet Mail Extensions
                 // MOP   - Meta Object Protocol            (Groovy)
+                // MVC   - Model View Controller
                 // ORM   - Object Relational Mapping       (Hibernate, JOOQ, MyBatis, Eclipse Link, Apache Cayenne)
+                // POJOs - Plain Old Java Object           (in Spring) (DTO, Entity)
                 // POM   - Project Object Model            (in Maven 2002)
                 // SQL   - Structured Query Language       (in Реляционные базы данных)
                 // TDD   - Test Driven Development         (in JUnit)
                 // URL   - Uniform Resource Locator
                 // WWW   - World Wide Web
+                // YAML  - Yet Another Markup Language     (in Config)
                 //
                 // Network
                 // PAN   - Personal     Area Network (Персональная)
@@ -867,13 +940,105 @@ public class Main {// Классы могут быть public или Default, н
                 // DNS   - Domain Name System
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
-                // SQL     - JAVA
-                // bigint  - Long
-                // date    - LocalData
-                // integer - Integer
-                // numeric - Double
-                // numeric - BigDecimal (для денег)
-                // varchar - String
+                // SQL       - JAVA
+                // bigint    - Long
+                // date      - LocalData
+                // integer   - Integer
+                // numeric   - Double
+                // numeric   - BigDecimal (для денег)
+                // timestamp - LocalDataTime
+                // varchar   - String
+                /////////////////////////////////////////////////////////////////////////////////////////
+                //
+                // SQL Query in Spring
+                // - package org.springframework.data.jpa.repository
+                // -                               interface extends JpaRepository
+                // - ------------------------------------------------------------------------------------
+                // -
+                // - package org.springframework.data.jpa.repository.query
+                // -                                                 class PartTreeJpaQuery
+                // - PATTERN + xXx + "By" + yYy
+                //
+                // - PATTERN:
+                //   QUERY_PATTERN  = "find|read|get|query|search|stream";
+                //   COUNT_PATTERN  = "count";
+                //   EXISTS_PATTERN = "exists";
+                //   DELETE_PATTERN = "delete|remove";
+                //
+                // - xYx:
+                //   All
+                //   Distinct
+                //   Top         = First
+                //   DistinctTop = DistinctFirst
+                //   Distinct         findDistinctByLastnameAndFirstname   select distinct … where x.lastname = ?1 and x.firstname = ?2
+                //
+                // - yYy:
+                // - https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
+                // Keyword            Sample	                           JPQL snippet
+                // And                findByLastnameAndFirstname	       … where x.lastname = ?1 and x.firstname = ?2
+                // Or                 findByLastnameOrFirstname	           … where x.lastname = ?1 or x.firstname = ?2
+                // Is, Equals         findByFirstname,                     … where x.firstname = ?1
+                // Is, Equals         findByFirstnameIs,                   … where x.firstname = ?1
+                // Is, Equals         findByFirstnameEquals	               … where x.firstname = ?1
+                // Between            findByStartDateBetween	           … where x.startDate between ?1 and ?2
+                // LessThan           findByAgeLessThan	                   … where x.age < ?1
+                // LessThanEqual      findByAgeLessThanEqual	           … where x.age <= ?1
+                // GreaterThan        findByAgeGreaterThan	               … where x.age > ?1
+                // GreaterThanEqual   findByAgeGreaterThanEqual	           … where x.age >= ?1
+                // After              findByStartDateAfter	               … where x.startDate > ?1
+                // Before             findByStartDateBefore	               … where x.startDate < ?1
+                // IsNull, Null       findByAge(Is)Null	                   … where x.age is null
+                // IsNotNull, NotNull findByAge(Is)NotNull	               … where x.age is not null
+                // Like               findByFirstnameLike	               … where x.firstname like ?1
+                // NotLike            findByFirstnameNotLike	           … where x.firstname not like ?1
+                // StartingWith       findByFirstnameStartingWith	       … where x.firstname like ?1 (parameter bound with appended %)
+                // EndingWith         findByFirstnameEndingWith	           … where x.firstname like ?1 (parameter bound with prepended %)
+                // Containing         findByFirstnameContaining	           … where x.firstname like ?1 (parameter bound wrapped in %)
+                // OrderBy            findByAgeOrderByLastnameDesc	       … where x.age = ?1 order by x.lastname desc
+                // Not                findByLastnameNot	                   … where x.lastname <> ?1
+                // In                 findByAgeIn(Collection<Age> ages)	   … where x.age in ?1
+                // NotIn              findByAgeNotIn(Collection<Age> ages) … where x.age not in ?1
+                // True               findByActiveTrue()	               … where x.active = true
+                // False              findByActiveFalse()	               … where x.active = false
+                // IgnoreCase         findByFirstnameIgnoreCase	           … where UPPER(x.firstname) = UPPER(?1)
+                // - ------------------------------------------------------------------------------------
+                // - package org.springframework.data.jpa.repository.query
+                // -                                                 class NamedQuery
+                // В Entity:
+                //               @NamedQuery( name  = "Company.findByName",
+                //                            query = "select c from Company c where c.name = :name")
+                // В Repository:
+                //               Optional<Company> findByName(String name);
+                // - ------------------------------------------------------------------------------------
+                // -
+                // - package org.springframework.data.jpa.repository.query
+                // -                                                 class NativeJpaQuery
+                // -                                                 class SimpleJpaQuery
+                // В Repository: 
+                //               @Query( "select u from User u " +                                              // HQL
+                //                       "where u.firstname like %:firstname% and u.lastname like %:lastname%") // HQL
+                //               List<User> findAllBy(String firstname, String lastname);
+                //             
+                //               @Query(value = "SELECT u.* FROM users u WHERE u.username = :username",         // SQL
+                //                      nativeQuery = true)                                                     // SQL
+                //               List<User> findAllByUsername(String username);
+                // - ------------------------------------------------------------------------------------
+                // - -
+                // - package org.springframework.data.repository
+                // -                                   interface CrudRepository
+                // -
+                // <S extends T> S           save          (S entity);
+                // <S extends T> Iterable<S> saveAll       (Iterable<S> entities);
+                // Optional<T>               findById      (ID id);
+                // boolean                   existsById    (ID id);
+                // Iterable<T>               findAll       ();
+                // Iterable<T>               findAllById   (Iterable<ID> ids);
+                // long                      count         ();
+                // void                      deleteById    (ID id);
+                // void                      delete        (T entity);
+                // void                      deleteAllById (Iterable<? extends ID> ids);
+                // void                      deleteAll     (Iterable<? extends T> entities);
+                // void                      deleteAll     ();
                 /////////////////////////////////////////////////////////////////////////////////////////
                 //
                 //         Стандартные   - Потокобезопасные
