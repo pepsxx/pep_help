@@ -1,4 +1,4 @@
-package example.T35;
+package example.T45;
 
 public class Group {
     String groupName;
