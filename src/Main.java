@@ -926,7 +926,6 @@ public class Main {// Классы могут быть public или Default, н
                 // WWW   - World Wide Web
                 // YAML  - Yet Another Markup Language     (in Config)
                 //
-                //
                 // SOLID - 
                 //       - Single Responsibility Principle - Принцип единственной ответственности
                 //       - Open-Closed Principle           - Принцип открытости/закрытости
@@ -934,8 +933,8 @@ public class Main {// Классы могут быть public или Default, н
                 //       - Interface Segregation Principle - Принцип разделения интерфейсов
                 //       - Dependency Inversion Principle  - Принцип инверсии зависимости
                 // + DRY   - Don’t Repeat Yourself         - Принцип не повторяйся
-                // + KISS  -
-                // + YAGNI -
+                // + KISS  - Keep It Simple, Stupid        – Принцип не усложняй!
+                // + YAGNI - You Ain’t Gonna Need It       – Принцип вам это не понадобится!
                 //
                 // Network
                 // PAN   - Personal     Area Network (Персональная)
