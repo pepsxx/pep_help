@@ -909,6 +909,10 @@ public class Main {// Классы могут быть public или Default, н
                 // HTML  - HyperText Markup Language
                 // IoC   - Inversion of Control            (in Spring)
                 // ISO   - International Organization for Standardization
+                // JDK   - Java Development Kit
+                // JRE   - Java Runtime Environment        (in JDK                  )
+                // JVM   - Java Virtual Machine            (in JDK (in JRE         ))
+                // JIT   - Just-in-time compilation        (in JDK (in JRE (in JVM)))
                 // JPA   - Java Persistence API            (Спецификация для ORM)
                 // JPQL  - Java Persistence Query Language (Спецификация для Запросов)
                 // JSP   - Java Server Pages

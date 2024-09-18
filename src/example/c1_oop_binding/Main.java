@@ -1,4 +1,4 @@
-package example.T35_Static_And_Dynamic_Linking;
+package example.c1_oop_binding;
 
 import java.util.ArrayList;
 import java.util.List;
