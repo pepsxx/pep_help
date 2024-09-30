@@ -9,11 +9,11 @@ public class Main {
                 3 | System    Classloader | Системный загрузчик  | -classpath      | java.class.path | AppClassLoader | CLASSPATH
                 
                 Пусть в систем исполнения встретилась декларация переменной пользовательского класса Student.
-                1.1 System Classloader                    -  Поиск в кеше класс Student.
+                1.1 System Classloader                    -  Поиск в кэше класс Student.
                     Если не найден, загрузка делегируется -> Extension Classloader.
-                1.2 Extension Classloader                 -  Поиск в кеше класс Student.
+                1.2 Extension Classloader                 -  Поиск в кэше класс Student.
                     Если не найден, загрузка делегируется -> Bootstrap Classloader.
-                1.3 Bootstrap Classloader                 -  Поиск в кеше класс Student.
+                1.3 Bootstrap Classloader                 -  Поиск в кэше класс Student.
                     Если не найден                        -  Переход к попытке загрузки.
                 2.1 Bootstrap Classloader загрузка класса
                     Если загрузка не прошла управление    -> Extension Classloader.

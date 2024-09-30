@@ -15,9 +15,9 @@ public class Main {
 
         System.out.println("""
                 Strong  reference   - Сильная
-                Soft    reference   - Мягкие
-                Weak    reference   - Слабые
-                Phantom reference   - Фантомные""");
+                Soft    reference   - Мягкая
+                Weak    reference   - Слабая
+                Phantom reference   - Фантомная""");
 
         Counter counterStrong = new Counter("counterStrong");
         Counter counterToSoft = new Counter("counterToSoft");
@@ -51,7 +51,6 @@ public class Main {
         }
 
         info(StrongRef, softRef, weakRef);
-
         if (queue.poll() != null) {
             System.out.println("PhantomReference = Проверив очередь для фантомных ссылок, можно выполнить действие если объект был помечен на удаление");
         }
@@ -60,7 +59,7 @@ public class Main {
 
     private static void info(Counter counter, SoftReference<Counter> softRef, WeakReference<Counter> weakRef) {
         System.out.println();
-        System.out.printf("StrongReference  = %-30s No Del%n", counter);
+        System.out.printf("StrongReference  = %-30s Not Del%n", counter);
         System.out.printf("SoftReference    = %-30s Del when JVM memory is low%n", softRef.get());
         System.out.printf("WeakReference    = %-30s Del for first GC running%n", weakRef.get());
     }
