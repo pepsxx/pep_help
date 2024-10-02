@@ -2,6 +2,12 @@ package suleimanov.design.patterns.behavioral.templateMethod;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        PageAbstract welcome = new PageWelcome();
+        PageAbstract news = new PageNews();
+
+        welcome.showPage();
+        System.out.println("-------------------------");
+        news.showPage();
+        System.out.println("-------------------------");
     }
 }
