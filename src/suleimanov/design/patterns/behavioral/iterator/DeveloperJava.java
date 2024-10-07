@@ -13,16 +13,8 @@ public class DeveloperJava implements Collection {
         return name;
     }
 
-    public String[] getSkills() {
-        return skills;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setSkills(String[] skills) {
-        this.skills = skills;
     }
 
     @Override

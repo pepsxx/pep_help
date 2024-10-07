@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
 
         Project project = new Project();
-        Developer junior = new DeveloperJunior();
-        Developer middle = new DeveloperMiddle();
+        Visitor junior = new VisitorJunior();
+        Visitor middle = new VisitorMiddle();
 
         System.out.println("Junior Action...");
         project.beWrittenBy(junior);

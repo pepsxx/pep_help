@@ -3,18 +3,18 @@ package suleimanov.design.patterns.structural.decorator;
 public class Main {
     public static void main(String[] args) {
 
-        Developer developer = new DeveloperJunior();
+        Developer developer1 = new DeveloperJunior();
 
-        System.out.println("developer.makeJob() = " + developer.makeJob());
+        System.out.println(developer1.makeJob());
 
-        Developer developer2 = new DeveloperMiddle(new DeveloperJunior());
-        System.out.println("developer2.makeJob() = " + developer2.makeJob());
+        Developer developer2 = new DecoratorMiddle(new DeveloperJunior());
+        System.out.println(developer2.makeJob());
 
-        Developer developer3 = new DeveloperSenior(new DeveloperMiddle(new DeveloperJunior()));
-        System.out.println("developer3.makeJob() = " + developer3.makeJob());
+        Developer developer3 = new DecoratorSenior(new DecoratorMiddle(new DeveloperJunior()));
+        System.out.println(developer3.makeJob());
 
-        Developer developer4 = new DeveloperSenior(new DeveloperJunior());
-        System.out.println("developer4.makeJob() = " + developer4.makeJob());
+        Developer developer4 = new DecoratorSenior(new DeveloperJunior());
+        System.out.println(developer4.makeJob());
 
     }
 }

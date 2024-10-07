@@ -1,7 +1,7 @@
 package suleimanov.design.patterns.structural.proxy;
 
 public class ProjectProxy implements Project {
-    private String url;
+    private final String url;
     private ProjectReal projectReal;
 
     public ProjectProxy(String url) {

@@ -6,17 +6,17 @@ public class Project implements ProjectElement{
 
     public Project() {
         this.projectElements = new ProjectElement[] {
-                new Code(),
-                new Database(),
-                new Test()
+                new ElementCode(),
+                new ElementDatabase(),
+                new ElementTest()
         };
     }
 
     @Override
-    public void beWrittenBy(Developer developer) {
+    public void beWrittenBy(Visitor visitor) {
 
         for (ProjectElement element : projectElements) {
-            element.beWrittenBy(developer);
+            element.beWrittenBy(visitor);
         }
 
     }

@@ -1,19 +1,12 @@
 package test001;
 
-public class Children extends Person implements Interface1 {
-
-    public static void test () {
-        System.out.println("Children");
+public class Children extends Perent {
+    static void test() {
+        System.out.println("Child Test");
     }
-    @Override
-    public void info() {
-       super.info();
-       System.out.println("id = " + id + "; name = " + name);
+    public Children test2 ()
+    {
+        System.out.println("Child Test 2");
+        return this;
     }
-
-
-    static class Ch2 {}
-
 }
-
-
