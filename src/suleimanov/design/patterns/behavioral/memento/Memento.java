@@ -5,7 +5,7 @@ import java.util.Date;
 public class Memento {
     private final String version;
     private final Date date;
-    private String code;
+    private final String code;
 
     public Memento(String version, String code, Date date) {
         this.version = version;

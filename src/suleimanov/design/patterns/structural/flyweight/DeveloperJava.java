@@ -1,8 +1,10 @@
 package suleimanov.design.patterns.structural.flyweight;
 
-public class DeveloperJava implements Developer {
+public class DeveloperJava extends FlyweightDeveloper {
+    String code = "Write Java code";
+
     @Override
     public void writeCode() {
-        System.out.println("Write Java code");
+        System.out.println(code);
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChatText implements Chat {
+
     User admin;
     List<User> users = new ArrayList<User>();
 

@@ -2,8 +2,8 @@ package suleimanov.design.patterns.behavioral.mediator;
 
 public class UserSimple implements User {
 
-    String name;
     Chat chat;
+    String name;
 
     public UserSimple(Chat chat, String name) {
         this.name = name;

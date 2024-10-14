@@ -28,11 +28,11 @@ public class Main {
                 =======================================================================================================
                 """);
 
-        AbstractFabric fabric = new Random().nextBoolean()
+        fabricDeveloper fabric = new Random().nextBoolean()
                 ? new FabricDeveloperJava()
                 : new FabricDeveloperCpp();
 
-        AbstractDeveloper developer = fabric.createDeveloper();
+        Developer developer = fabric.createDeveloper();
         developer.writeCode(); // дальше код не зависит от того какой именно developer
         developer.writeCode(); // дальше код не зависит от того какой именно developer
         developer.writeCode(); // дальше код не зависит от того какой именно developer

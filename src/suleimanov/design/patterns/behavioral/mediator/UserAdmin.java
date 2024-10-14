@@ -1,6 +1,7 @@
 package suleimanov.design.patterns.behavioral.mediator;
 
 public class UserAdmin implements User {
+
     Chat chat;
     String name;
 

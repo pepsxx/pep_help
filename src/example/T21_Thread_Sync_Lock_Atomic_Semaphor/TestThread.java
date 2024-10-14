@@ -3,7 +3,9 @@ package example.T21_Thread_Sync_Lock_Atomic_Semaphor;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class TestThread implements Runnable {
+
     Account acc;
+
     public TestThread(Account acc) {
         this.acc = acc;
     }

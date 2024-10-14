@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+
         System.out.printf("%-9S %-9S ----------%n", "Start", Thread.currentThread().getName());
         List<Thread> threadList = new ArrayList<>();
         Account acc1 = new Account();
@@ -16,5 +17,6 @@ public class Main {
         acc1.info();
 
         System.out.printf("%-9S %-9S ----------%n", "Stop", Thread.currentThread().getName());
+
     }
 }

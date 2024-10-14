@@ -1,7 +1,7 @@
 package suleimanov.design.patterns.generating.singleton;
 
 public class ConnectDB {
-    private static ConnectDB instance;
+    private volatile static ConnectDB instance; // volatile
 
     private ConnectDB() {
     }

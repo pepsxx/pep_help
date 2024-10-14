@@ -1,8 +1,10 @@
 package suleimanov.design.patterns.structural.flyweight;
 
-public class DeveloperCpp implements Developer {
+public class DeveloperCpp extends FlyweightDeveloper {
+    String code = "Write C++ code";
+
     @Override
     public void writeCode() {
-        System.out.println("Write C++ code");
+        System.out.println(code);
     }
 }

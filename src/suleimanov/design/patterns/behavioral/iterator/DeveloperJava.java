@@ -1,6 +1,7 @@
 package suleimanov.design.patterns.behavioral.iterator;
 
 public class DeveloperJava implements Collection {
+
     private String name;
     private String[] skills;
 

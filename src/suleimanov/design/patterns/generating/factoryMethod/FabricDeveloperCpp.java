@@ -1,8 +1,8 @@
 package suleimanov.design.patterns.generating.factoryMethod;
 
-public class FabricDeveloperCpp implements AbstractFabric {
+public class FabricDeveloperCpp implements fabricDeveloper {
     @Override
-    public AbstractDeveloper createDeveloper() {
+    public Developer createDeveloper() {
         return new DeveloperCpp();
     }
 }

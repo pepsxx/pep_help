@@ -7,5 +7,9 @@ public class Main {
 
         child.info();
 
+        System.out.println("=========================");
+        
+        Child child2 = new Child();
+
     }
 }

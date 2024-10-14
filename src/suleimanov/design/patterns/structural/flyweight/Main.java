@@ -6,9 +6,9 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        FabricFlyweight fabricFlyweight = new FabricFlyweight();
+        FabricFlyweightDeveloper fabricFlyweight = new FabricFlyweightDeveloper();
 
-        List<Developer> developers = new ArrayList<Developer>();
+        List<FlyweightDeveloper> developers = new ArrayList<>();
 
         developers.add(fabricFlyweight.getDeveloper("Java"));
         developers.add(fabricFlyweight.getDeveloper("Java"));
@@ -17,7 +17,7 @@ public class Main {
         developers.add(fabricFlyweight.getDeveloper("C++"));
         developers.add(fabricFlyweight.getDeveloper("C++"));
 
-        for (Developer developer : developers) {
+        for (FlyweightDeveloper developer : developers) {
             developer.writeCode();
         }
     }

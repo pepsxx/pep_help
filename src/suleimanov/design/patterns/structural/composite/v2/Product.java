@@ -10,7 +10,7 @@ public class Product implements Order {
 
     @Override
     public int getSum() {
-        System.out.println("Смотрю стоимость " + this.toString() + " = " + this.price);
+        System.out.println("Смотрю стоимость " + this + " = " + this.price);
         return this.price;
     }
 }
