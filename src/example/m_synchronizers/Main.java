@@ -1,4 +1,4 @@
-package example.T25_Thread_sync;
+package example.m_synchronizers;
 
 import lombok.SneakyThrows;
 

@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="pep_pro_help:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/pep_pro_help_jar</output-path>
+    <root id="archive" name="pep_pro_help.jar">
+      <element id="module-output" name="pep_pro_help" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/manualDependency/lombok.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/manualDependency/postgresql-42.7.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
