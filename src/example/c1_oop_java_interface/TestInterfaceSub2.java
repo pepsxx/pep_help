@@ -4,6 +4,6 @@ public interface TestInterfaceSub2 {
 
     default void sameDefault () {
         System.out.println("TestInterfaceSub2");
-    };
+    }
 
 }

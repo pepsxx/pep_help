@@ -1,6 +1,6 @@
 package suleimanov.design.patterns.behavioral.iterator;
 
-public class DeveloperJava implements Collection {
+public class DeveloperJava {
 
     private String name;
     private String[] skills;
@@ -18,7 +18,6 @@ public class DeveloperJava implements Collection {
         this.name = name;
     }
 
-    @Override
     public Iterator getIterator() {
         return new SkillIterator();
     }
