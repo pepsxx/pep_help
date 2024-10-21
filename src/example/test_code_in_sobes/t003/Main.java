@@ -1,4 +1,4 @@
-package example.T00_CodeTest.t003;
+package example.test_code_in_sobes.t003;
 
 import java.util.List;
 

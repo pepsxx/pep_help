@@ -1,4 +1,4 @@
-package example.T00_CodeTest.t001;
+package example.test_code_in_sobes.t001;
 
 import java.util.Arrays;
 import java.util.HashSet;

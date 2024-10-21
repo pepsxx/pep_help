@@ -1,4 +1,4 @@
-package example.T00_CodeTest.t002;
+package example.test_code_in_sobes.t002;
 
 public class User {
     String name;

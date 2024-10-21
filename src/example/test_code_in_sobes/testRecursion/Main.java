@@ -1,4 +1,4 @@
-package example.testRecursion;
+package example.test_code_in_sobes.testRecursion;
 
 public class Main {
     public static void main(String[] args) {

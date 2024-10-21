@@ -1,4 +1,4 @@
-package example.c1_oop_association_Aggregation_composition;
+package example.c1_oop_association_aggregation_composition;
 
 public class Main {
     public static void main(String[] args) {
