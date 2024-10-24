@@ -234,7 +234,7 @@ public class Main {// Классы могут быть public или Default, н
         System.out.printf("|%-5d|%-5d|%-5d|%n", pmi_Int1, 100, pmi_Int2);
         System.out.printf("|%5d|%5d|%5d|%n", 123, 123456, 123456789); //Если не влезает в 5 символов, то расширяется до нужного количества.
         System.out.printf("|%.5f|%.15f|%.25f|%n", Math.PI, Math.PI, Math.PI);
-        Thread.sleep(10_000);
+//        Thread.sleep(10_000);
         System.out.println("#########################################################################################");
         System.out.println("//Операторы сравнения - [> >= < <= != ==] и Условный оператор if--------------------------");
         pmy_Bite = 5;
@@ -602,6 +602,7 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("file1.getParent()       = " + file1.getParent());
         System.out.println("file1.getAbsolutePath() = " + file1.getAbsolutePath());
         System.out.println("//FileInputStream------------------------------------------------------------------------");
+        Thread.sleep(10_000);
         try (FileInputStream fis = new FileInputStream(file1)) {
             byte[] bytes = fis.readAllBytes();
             String string = new String(bytes);
@@ -628,6 +629,7 @@ public class Main {// Классы могут быть public или Default, н
         try (Stream<String> lines = Files.lines(path1)) {
             lines.forEach(System.out::println);
         }
+        //Thread.sleep(10_000);
         System.out.println("//Files - Output-------------------------------------------------------------------------");
         Path path2 = Path.of(dir.getName(), "File2.txt");
         Files.writeString(path2, "TestLine3\n", StandardOpenOption.APPEND);
@@ -1022,6 +1024,7 @@ public class Main {// Классы могут быть public или Default, н
                 //               @NamedQuery( name  = "Company.findByName",
                 //                            query = "select c from Company c where c.name = :name")
                 // В Repository:
+                //               @Query(name = "Company.findByName")
                 //               Optional<Company> findByName(String name);
                 // - ------------------------------------------------------------------------------------
                 // -

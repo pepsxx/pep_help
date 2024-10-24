@@ -1,4 +1,4 @@
-package example.T15_Streams;
+package example.T15_Streams.v001;
 
 
 import java.util.List;

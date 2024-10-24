@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        FabricFlyweightDeveloper fabricFlyweight = new FabricFlyweightDeveloper();
+        Developers fabricFlyweight = new Developers();
 
         List<FlyweightDeveloper> developers = new ArrayList<>();
 

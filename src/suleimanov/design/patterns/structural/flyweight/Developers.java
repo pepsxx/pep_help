@@ -3,7 +3,7 @@ package suleimanov.design.patterns.structural.flyweight;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FabricFlyweightDeveloper {
+public class Developers {
 
     private static final Map<String, FlyweightDeveloper> flyweightDevelopers = new HashMap<>();
 
@@ -16,7 +16,7 @@ public class FabricFlyweightDeveloper {
             switch (speciality) {
                 case "Java" -> {
                     System.out.println("Java developer hiring");
-                    developer = new DeveloperCpp();
+                    developer = new DeveloperJava();
                 }
                 case "C++" -> {
                     System.out.println("C++ developer hiring");
