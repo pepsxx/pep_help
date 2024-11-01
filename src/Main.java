@@ -602,7 +602,7 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("file1.getParent()       = " + file1.getParent());
         System.out.println("file1.getAbsolutePath() = " + file1.getAbsolutePath());
         System.out.println("//FileInputStream------------------------------------------------------------------------");
-        Thread.sleep(10_000);
+//        Thread.sleep(10_000);
         try (FileInputStream fis = new FileInputStream(file1)) {
             byte[] bytes = fis.readAllBytes();
             String string = new String(bytes);
@@ -666,7 +666,7 @@ public class Main {// Классы могут быть public или Default, н
         System.out.println("zonedDateTime.getZone()       = " + zonedDateTime.getZone());
         System.out.println("zonedDateTime.getOffset()     = " + zonedDateTime.getOffset());
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        System.out.println("   DateTimeFormatter dateTimeFormatter  = DateTimeFormatter.ofPattern(\"dd.MM.yyyy\")");
+        System.out.println("DateTimeFormatter    dateTimeFormatter  = DateTimeFormatter.ofPattern(\"dd.MM.yyyy\")");
         System.out.println("zonedDateTime.format(dateTimeFormatter) = " + zonedDateTime.format(dateTimeFormatter));
         System.out.println("#########################################################################################");
     }
